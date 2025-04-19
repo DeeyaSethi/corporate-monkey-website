@@ -19,15 +19,15 @@ A professional corporate gifting solutions website built with Next.js, featuring
 ## Setup
 
 1. Clone the repository:
-\`\`\`bash
+```bash
 git clone <repository-url>
 cd corporate-monkey
-\`\`\`
+```
 
 2. Install dependencies:
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 3. Set up Google Sheets:
    - Create a new Google Sheets document
@@ -46,9 +46,9 @@ npm install
    - Fill in your Google Sheets API credentials and spreadsheet ID
 
 5. Run the development server:
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ## Google Sheets Setup
 
@@ -96,4 +96,4 @@ Remember to:
 2. Create your feature branch
 3. Commit your changes
 4. Push to the branch
-5. Create a new Pull Request 
+5. Create a new Pull Request
