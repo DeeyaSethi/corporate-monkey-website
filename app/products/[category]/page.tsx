@@ -70,26 +70,26 @@ async function CategoryPage({ params }: CategoryPageProps) {
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         {/* Product grid */}
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-100">
+              <div className="aspect-h-4 aspect-w-3 w-full overflow-hidden rounded-lg bg-gray-100">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />
-                <div className="flex items-end p-4">
-                  <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <h3 className="font-medium text-gray-900">
+                <div className="flex items-end p-2 sm:p-4">
+                  <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <h3 className="font-medium text-gray-900 text-sm sm:text-base">
                       <Link href={`/products/${params.category}/${product.id}`}>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {product.name}
                       </Link>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
                     {product.minQuantity && (
-                      <p className="mt-1 text-sm text-primary-600">
+                      <p className="mt-1 text-xs sm:text-sm text-primary-600">
                         Min. Quantity: {product.minQuantity}
                       </p>
                     )}
@@ -97,25 +97,25 @@ async function CategoryPage({ params }: CategoryPageProps) {
                 </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-lg font-medium text-gray-900">
+                <h3 className="text-sm sm:text-base font-medium text-gray-900">
                   {product.name}
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
                 <div className="mt-2 flex items-center justify-between">
-                  <p className="text-lg font-medium text-primary-600">₹{product.price}</p>
+                  <p className="text-sm sm:text-lg font-medium text-primary-600">₹{product.price}</p>
                   {product.minQuantity && (
-                    <p className="text-sm text-gray-500">
+                    <p className="text-xs sm:text-sm text-gray-500">
                       Min. Qty: {product.minQuantity}
                     </p>
                   )}
                 </div>
                 {product.customizationOptions && product.customizationOptions.length > 0 && (
                   <div className="mt-4 border-t border-gray-200 pt-4">
-                    <h4 className="text-sm font-medium text-gray-900">Customization Options:</h4>
+                    <h4 className="text-xs sm:text-sm font-medium text-gray-900">Customization Options:</h4>
                     <ul className="mt-2 space-y-2">
                       {product.customizationOptions.map((option) => (
-                        <li key={option} className="text-sm text-gray-500 flex items-center">
-                          <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <li key={option} className="text-xs sm:text-sm text-gray-500 flex items-center">
+                          <svg className="h-3 w-3 sm:h-4 sm:w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                           </svg>
                           {option}

@@ -44,19 +44,10 @@ async function ProductPage({ params }: ProductPageProps) {
     <div className="bg-white">
       <Navigation />
 
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="mb-12">
-          <Link
-            href={`/products/${params.category}`}
-            className="text-primary-600 hover:text-primary-500"
-          >
-            ← Back to {params.category.replace('-', ' ')}
-          </Link>
-        </div>
-
-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8">
-          {/* Product Image */}
-          <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
+      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+          {/* Image gallery */}
+          <div className="aspect-h-4 aspect-w-3 sm:aspect-h-3 sm:aspect-w-4 overflow-hidden rounded-lg">
             <img
               src={product.imageUrl}
               alt={product.name}
@@ -64,67 +55,55 @@ async function ProductPage({ params }: ProductPageProps) {
             />
           </div>
 
-          {/* Product Details */}
+          {/* Product info */}
           <div className="mt-8 lg:mt-0">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              {product.name}
-            </h1>
-            <div className="mt-4">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
+            <div className="mt-3">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">₹{product.price}</p>
+              <p className="text-2xl sm:text-3xl tracking-tight text-primary-600">₹{product.price}</p>
             </div>
 
-            <div className="mt-6">
-              <h3 className="sr-only">Description</h3>
-              <p className="text-lg text-gray-500">{product.description}</p>
+            <div className="mt-4">
+              <h2 className="sr-only">Product description</h2>
+              <p className="text-sm sm:text-base text-gray-700">{product.description}</p>
             </div>
 
             {product.minQuantity && (
-              <div className="mt-6">
-                <h3 className="text-sm font-medium text-gray-900">Minimum Quantity</h3>
+              <div className="mt-4 border-t border-gray-200 pt-4">
+                <h3 className="text-sm font-medium text-gray-900">Minimum Order Quantity</h3>
                 <p className="mt-2 text-sm text-gray-500">{product.minQuantity} units</p>
               </div>
             )}
 
             {product.customizationOptions && product.customizationOptions.length > 0 && (
-              <div className="mt-6">
+              <div className="mt-4 border-t border-gray-200 pt-4">
                 <h3 className="text-sm font-medium text-gray-900">Customization Options</h3>
-                <ul className="mt-2 list-disc pl-4 text-sm text-gray-500">
+                <ul className="mt-2 space-y-2">
                   {product.customizationOptions.map((option) => (
-                    <li key={option} className="mt-1">{option}</li>
+                    <li key={option} className="text-sm text-gray-500 flex items-center">
+                      <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                      </svg>
+                      {option}
+                    </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            <div className="mt-10 space-y-6">
-              <div className="rounded-lg bg-gray-50 p-6">
-                <h3 className="text-base font-medium text-gray-900">
-                  Interested in this product?
-                </h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Contact us to discuss your requirements, bulk pricing, and customization options.
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-block rounded-md bg-primary-600 px-4 py-2 text-base font-medium text-white hover:bg-primary-700"
-                >
-                  Contact Us
-                </Link>
-              </div>
-
-              <div className="rounded-lg bg-gray-50 p-6">
-                <h3 className="text-base font-medium text-gray-900">
-                  Need help with your order?
-                </h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Our team is here to assist you with product selection, customization, and ordering.
-                </p>
-                <div className="mt-4 text-sm text-gray-500">
-                  <p>Email: info@corporatemonkey.in</p>
-                  <p>Phone: +91 XXXXXXXXXX</p>
-                </div>
-              </div>
+            <div className="mt-8 flex flex-col space-y-4">
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+              >
+                Contact for Bulk Order
+              </Link>
+              <Link
+                href={`/products/${product.category}`}
+                className="flex w-full items-center justify-center rounded-md border border-primary-600 px-6 py-3 text-base font-medium text-primary-600 shadow-sm hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+              >
+                View More {product.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Products
+              </Link>
             </div>
           </div>
         </div>

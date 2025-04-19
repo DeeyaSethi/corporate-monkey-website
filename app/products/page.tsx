@@ -69,23 +69,23 @@ async function Products() {
 
         {/* Category section */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none">
-            <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+          <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:max-w-none">
+            <div className="mt-6 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
               {categories.map((category) => (
                 <Link
                   key={category.slug}
                   href={`/products/${category.slug}`}
                   className="group relative block overflow-hidden rounded-lg bg-white shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl"
                 >
-                  <div className="relative h-80">
+                  <div className="relative h-48 sm:h-64 lg:h-80">
                     <img
                       src={category.image}
                       alt={category.name}
                       className="h-full w-full object-cover object-center"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-b ${category.color} mix-blend-multiply`} />
-                    <div className="absolute inset-0 flex flex-col justify-end p-6">
-                      <h3 className="text-2xl font-bold text-white">{category.name}</h3>
+                    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white">{category.name}</h3>
                       <p className="mt-2 text-sm text-gray-100">{category.description}</p>
                       <span className="mt-4 inline-flex items-center text-sm font-medium text-white">
                         Explore Collection →
@@ -99,9 +99,9 @@ async function Products() {
 
           {/* Featured Products */}
           {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
-            <div key={category} className="mt-16">
+            <div key={category} className="mt-12 sm:mt-16">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-gray-900 capitalize">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
                   {category.replace('-', ' ')}
                 </h2>
                 <Link
@@ -112,18 +112,18 @@ async function Products() {
                 </Link>
               </div>
               
-              <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
+              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                 {categoryProducts.slice(0, 4).map((product) => (
                   <div key={product.id} className="group relative">
-                    <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">
+                    <div className="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg bg-gray-100">
                       <img
                         src={product.imageUrl}
                         alt={product.name}
-                        className="object-cover object-center group-hover:opacity-75"
+                        className="h-full w-full object-cover object-center group-hover:opacity-75"
                       />
-                      <div className="flex items-end p-4">
-                        <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 text-sm">
-                          <h3 className="font-medium text-gray-900">
+                      <div className="flex items-end p-2 sm:p-4">
+                        <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 text-sm">
+                          <h3 className="font-medium text-gray-900 text-sm sm:text-base">
                             <Link href={`/products/${category}/${product.id}`}>
                               <span aria-hidden="true" className="absolute inset-0" />
                               {product.name}

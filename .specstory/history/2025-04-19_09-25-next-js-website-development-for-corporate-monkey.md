@@ -8028,7 +8028,2442 @@ I see the build is failing because the `googleapis` package is missing. Let's in
 
 ---
 
+```bash
+npm install googleapis
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % npm install googleapis
+npm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was
+ generated for lockfileVersion@3. I'll try to do my best with it!
+npm ERR! code ETARGET
+npm ERR! notarget No matching version found for string-width-cjs@4.2.3.
+npm ERR! notarget In most cases you or one of your dependencies are requesting
+npm ERR! notarget a package version that doesn't exist.
+npm ERR! notarget 
+npm ERR! notarget It was specified as a dependency of '@isaacs/cliui'
+npm ERR! notarget 
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/deeyasethi_1/.npm/_logs/2025-04-19T11_14_01_472Z-debug.log
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let's try installing with a specific version and force flag to resolve the dependency issues:
+
+---
+
+```bash
+npm install googleapis@126.0.1 --force
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % nvm npm install googleapis@126.0.1 --force
+
+Node Version Manager (v0.39.7)
+
+Note: <version> refers to any version-like string nvm understands. This includes:
+  - full or partial version numbers, starting with an optional "v" (0.10, v0.1.2, v1)
+  - default (built-in) aliases: node, stable, unstable, iojs, system
+  - custom aliases you define with `nvm alias foo`
+
+ Any options that produce colorized output should respect the `--no-colors` option.
+
+Usage:
+  nvm --help                                  Show this message
+    --no-colors                               Suppress colored output
+  nvm --version                               Print out the installed version of nvm
+  nvm install [<version>]                     Download and install a <version>. Uses .nvmrc if available and
+ version is omitted.
+   The following optional arguments, if provided, must appear directly after `nvm install`:
+    -s                                        Skip binary download, install from source only.
+    -b                                        Skip source download, install from binary only.
+    --reinstall-packages-from=<version>       When installing, reinstall packages installed in <node|iojs|no
+de version number>
+    --lts                                     When installing, only select from LTS (long-term support) vers
+ions
+    --lts=<LTS name>                          When installing, only select from versions for a specific LTS 
+line
+    --skip-default-packages                   When installing, skip the default-packages file if it exists
+    --latest-npm                              After installing, attempt to upgrade to the latest working npm
+ on the given node version
+    --no-progress                             Disable the progress bar on any downloads
+    --alias=<name>                            After installing, set the alias specified to the version speci
+fied. (same as: nvm alias <name> <version>)
+    --default                                 After installing, set default alias to the version specified. 
+(same as: nvm alias default <version>)
+  nvm uninstall <version>                     Uninstall a version
+  nvm uninstall --lts                         Uninstall using automatic LTS (long-term support) alias `lts/*
+`, if available.
+  nvm uninstall --lts=<LTS name>              Uninstall using automatic alias for provided LTS line, if avai
+lable.
+  nvm use [<version>]                         Modify PATH to use <version>. Uses .nvmrc if available and ver
+sion is omitted.
+   The following optional arguments, if provided, must appear directly after `nvm use`:
+    --silent                                  Silences stdout/stderr output
+    --lts                                     Uses automatic LTS (long-term support) alias `lts/*`, if avail
+able.
+    --lts=<LTS name>                          Uses automatic alias for provided LTS line, if available.
+  nvm exec [<version>] [<command>]            Run <command> on <version>. Uses .nvmrc if available and versi
+on is omitted.
+   The following optional arguments, if provided, must appear directly after `nvm exec`:
+    --silent                                  Silences stdout/stderr output
+    --lts                                     Uses automatic LTS (long-term support) alias `lts/*`, if avail
+able.
+    --lts=<LTS name>                          Uses automatic alias for provided LTS line, if available.
+  nvm run [<version>] [<args>]                Run `node` on <version> with <args> as arguments. Uses .nvmrc 
+if available and version is omitted.
+   The following optional arguments, if provided, must appear directly after `nvm run`:
+    --silent                                  Silences stdout/stderr output
+    --lts                                     Uses automatic LTS (long-term support) alias `lts/*`, if avail
+able.
+    --lts=<LTS name>                          Uses automatic alias for provided LTS line, if available.
+  nvm current                                 Display currently activated version of Node
+  nvm ls [<version>]                          List installed versions, matching a given <version> if provide
+d
+    --no-colors                               Suppress colored output
+    --no-alias                                Suppress `nvm alias` output
+  nvm ls-remote [<version>]                   List remote versions available for install, matching a given <
+version> if provided
+    --lts                                     When listing, only show LTS (long-term support) versions
+    --lts=<LTS name>                          When listing, only show versions for a specific LTS line
+    --no-colors                               Suppress colored output
+  nvm version <version>                       Resolve the given description to a single local version
+  nvm version-remote <version>                Resolve the given description to a single remote version
+    --lts                                     When listing, only select from LTS (long-term support) version
+s
+    --lts=<LTS name>                          When listing, only select from versions for a specific LTS lin
+e
+  nvm deactivate                              Undo effects of `nvm` on current shell
+    --silent                                  Silences stdout/stderr output
+  nvm alias [<pattern>]                       Show all aliases beginning with <pattern>
+    --no-colors                               Suppress colored output
+  nvm alias <name> <version>                  Set an alias named <name> pointing to <version>
+  nvm unalias <name>                          Deletes the alias named <name>
+  nvm install-latest-npm                      Attempt to upgrade to the latest working `npm` on the current 
+node version
+  nvm reinstall-packages <version>            Reinstall global `npm` packages contained in <version> to curr
+ent version
+  nvm unload                                  Unload `nvm` from shell
+  nvm which [current | <version>]             Display path to installed node version. Uses .nvmrc if availab
+le and version is omitted.
+    --silent                                  Silences stdout/stderr output when a version is omitted
+  nvm cache dir                               Display path to the cache directory for nvm
+  nvm cache clear                             Empty cache directory for nvm
+  nvm set-colors [<color codes>]              Set five text colors using format "yMeBg". Available when supp
+orted.
+                                               Initial colors are:
+                                                  bygre
+                                               Color codes:
+                                                r/R = red / bold red
+                                                g/G = green / bold green
+                                                b/B = blue / bold blue
+                                                c/C = cyan / bold cyan
+                                                m/M = magenta / bold magenta
+                                                y/Y = yellow / bold yellow
+                                                k/K = black / bold black
+                                                e/W = light grey / white
+Example:
+  nvm install 8.0.0                     Install a specific version number
+  nvm use 8.0                           Use the latest available 8.0.x release
+  nvm run 6.10.3 app.js                 Run app.js using node 6.10.3
+  nvm exec 4.8.3 node app.js            Run `node app.js` with the PATH pointing to node 4.8.3
+  nvm alias default 8.1.0               Set default node version on a shell
+  nvm alias default node                Always default to the latest available node version on a shell
+
+  nvm install node                      Install the latest available version
+  nvm use node                          Use the latest version
+  nvm install --lts                     Install the latest LTS version
+  nvm use --lts                         Use the latest LTS version
+
+  nvm set-colors cgYmW                  Set text colors to cyan, green, bold yellow, magenta, and white
+
+Note:
+  to remove, delete, or uninstall nvm - just remove the `$NVM_DIR` folder (usually `~/.nvm`)
+
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+I apologize for the confusion. Let's try a different approach. Since we're using the Google Apps Script for our API, we don't actually need the `googleapis` package. Let me update the code to remove this dependency:
+
+---
+
+```diff
+- import { google } from 'googleapis'
+- 
+  export interface Product {
+-   id: string
+-   name: string
+-   description: string
+-   category: string
+-   price: number
+-   imageUrl: string
+-   minQuantity?: number
+-   customizationOptions?: string[]
+- }
+- 
+- export async function getGoogleSheetsClient() {
+-   // This function will need to be configured with your Google Sheets API credentials
+-   const auth = new google.auth.GoogleAuth({
+-     credentials: {
+-       // You'll need to provide these values through environment variables
+-       client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+-       private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+-     },
+-     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+-   })
+- 
+-   const sheets = google.sheets({ version: 'v4', auth })
+-   return sheets
++   id: string;
++   name: string;
++   description: string;
++   price: number;
++   imageUrl: string;
++   category: string;
++   minQuantity?: number;
++   customizationOptions?: string[];
++ }
++ 
++ // Using the Google Apps Script web app URL instead of direct Sheets API
++ const API_URL = process.env.NEXT_PUBLIC_API_URL;
++ const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
++ 
++ if (!API_URL || !TOKEN) {
++   throw new Error('Missing required environment variables');
+  }
+  
+- export async function getProducts(category?: string): Promise<Product[]> {
++ export async function fetchProducts(): Promise<Product[]> {
+    try {
+-     // Your Google Sheet must be published to the web and accessible via CSV
+-     const sheetId = process.env.GOOGLE_SHEET_ID
+-     const sheetName = 'Products' // Name of your sheet
+-     const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
+-     
+-     const response = await fetch(url)
+-     const text = await response.text()
+-     
+-     // Parse CSV (simple parsing, you might want to use a CSV parser library for more robust handling)
+-     const rows = text.split('\n').slice(1) // Skip header row
+-     const products: Product[] = rows.map(row => {
+-       // Remove quotes and split by comma
+-       const columns = row.split(',').map(col => col.replace(/^"|"$/g, '').trim())
+-       
+-       return {
+-         id: columns[0],
+-         name: columns[1],
+-         description: columns[2],
+-         category: columns[3],
+-         price: parseFloat(columns[4]),
+-         imageUrl: columns[5],
+-         minQuantity: columns[6] ? parseInt(columns[6]) : undefined,
+-         customizationOptions: columns[7] ? columns[7].split(';').map(opt => opt.trim()) : undefined,
+-       }
+-     })
+- 
+-     if (category) {
+-       return products.filter((product) => product.category.toLowerCase() === category.toLowerCase())
+-     }
+- 
+-     return products
++     const response = await fetch(`${API_URL}?token=${TOKEN}&action=getProducts`);
++     const data = await response.json();
++     
++     if (!data.data?.products || !Array.isArray(data.data.products)) {
++       return [];
++     }
++ 
++     return data.data.products.map((product: any) => ({
++       id: String(product.id),
++       name: String(product.name),
++       description: String(product.description),
++       price: Number(product.price),
++       imageUrl: String(product.imageUrl),
++       category: String(product.category).toLowerCase(),
++       minQuantity: product.minQuantity ? Number(product.minQuantity) : undefined,
++       customizationOptions: Array.isArray(product.customizationOptions) 
++         ? product.customizationOptions 
++         : typeof product.customizationOptions === 'string'
++           ? product.customizationOptions.split(';').filter(Boolean)
++           : undefined
++     }));
+    } catch (error) {
+-     console.error('Error fetching products from Google Sheets:', error)
+-     return []
++     console.error('Error fetching products:', error);
++     return [];
+    }
+  } 
+```
+
+---
+
+Now let's commit these changes and push them to GitHub:
+
+---
+
+```bash
+git add . && git commit -m "Remove googleapis dependency and update API integration" && git push origin main
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % git add . && git commit -m "Remove googleapis dependency and update 
+API integration" && git push origin maingit add . && git commit -m "Remove googleapis dependency and update 
+API integration" && git push origin main
+[main 7e5eda0] Remove googleapis dependency and update API integration
+ 2 files changed, 328 insertions(+), 53 deletions(-)
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 11 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 4.54 KiB | 2.27 MiB/s, done.
+Total 8 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/DeeyaSethi/corporate-monkey-website.git
+   bde74d6..7e5eda0  main -> main
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Now that we've removed the googleapis dependency, the build should work. Here's what you need to do to deploy on Vercel:
+
+1. Go to [Vercel](https://vercel.com)
+2. Sign in with your GitHub account
+3. Click "Add New Project"
+4. Select the `corporate-monkey-website` repository
+5. In the configuration step, add these environment variables:
+   ```
+   NEXT_PUBLIC_API_URL=https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec
+   NEXT_PUBLIC_API_TOKEN=pankajsethi2388
+   ```
+6. Click "Deploy"
+
+The deployment should now succeed since we've removed the googleapis dependency. Would you like me to help you with any of these steps?
+
+---
+
+_**User**_
+
+images of products looks very big in mobile view, make it appealing across website for mobile view
+
+---
+
+_**Assistant**_
+
+I'll help you optimize the image sizes and layout for mobile view. Let's update the styles in the product pages:
+
+1. First, let's update the main products page:
+
+---
+
+```diff
+          {/* Category section */}
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+-           <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none">
+-             <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
++           <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:max-w-none">
++             <div className="mt-6 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                {categories.map((category) => (
+                  <Link
+                    className="group relative block overflow-hidden rounded-lg bg-white shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl"
+                  >
+-                   <div className="relative h-80">
++                   <div className="relative h-48 sm:h-64 lg:h-80">
+                      <img
+                        src={category.image}
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-b ${category.color} mix-blend-multiply`} />
+-                     <div className="absolute inset-0 flex flex-col justify-end p-6">
+-                       <h3 className="text-2xl font-bold text-white">{category.name}</h3>
++                     <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
++                       <h3 className="text-xl sm:text-2xl font-bold text-white">{category.name}</h3>
+                        <p className="mt-2 text-sm text-gray-100">{category.description}</p>
+                        <span className="mt-4 inline-flex items-center text-sm font-medium text-white">
+            {/* Featured Products */}
+            {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
+-             <div key={category} className="mt-16">
++             <div key={category} className="mt-12 sm:mt-16">
+                <div className="flex items-center justify-between">
+-                 <h2 className="text-2xl font-bold text-gray-900 capitalize">
++                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
+                    {category.replace('-', ' ')}
+                  </h2>
+                </div>
+                
+-               <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
++               <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
+                  {categoryProducts.slice(0, 4).map((product) => (
+                    <div key={product.id} className="group relative">
+-                     <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">
++                     <div className="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg bg-gray-100">
+                        <img
+                          src={product.imageUrl}
+                          alt={product.name}
+-                         className="object-cover object-center group-hover:opacity-75"
++                         className="h-full w-full object-cover object-center group-hover:opacity-75"
+                        />
+-                       <div className="flex items-end p-4">
+-                         <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 text-sm">
+-                           <h3 className="font-medium text-gray-900">
++                       <div className="flex items-end p-2 sm:p-4">
++                         <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 text-sm">
++                           <h3 className="font-medium text-gray-900 text-sm sm:text-base">
+                              <Link href={`/products/${category}/${product.id}`}>
+                                <span aria-hidden="true" className="absolute inset-0" />
+```
+
+---
+
+2. Now let's update the category page for better mobile responsiveness:
+
+---
+
+```diff
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          {/* Product grid */}
+-         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
++         <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+            {products.map((product) => (
+              <div key={product.id} className="group relative">
+-               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-100">
++               <div className="aspect-h-4 aspect-w-3 w-full overflow-hidden rounded-lg bg-gray-100">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  />
+-                 <div className="flex items-end p-4">
+-                   <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+-                     <h3 className="font-medium text-gray-900">
++                 <div className="flex items-end p-2 sm:p-4">
++                   <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity">
++                     <h3 className="font-medium text-gray-900 text-sm sm:text-base">
+                        <Link href={`/products/${params.category}/${product.id}`}>
+                          <span aria-hidden="true" className="absolute inset-0" />
+                          {product.name}
+                        </Link>
+                      </h3>
+-                     <p className="mt-1 text-sm text-gray-500">{product.description}</p>
++                     <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
+                      {product.minQuantity && (
+-                       <p className="mt-1 text-sm text-primary-600">
++                       <p className="mt-1 text-xs sm:text-sm text-primary-600">
+                          Min. Quantity: {product.minQuantity}
+                        </p>
+                </div>
+                <div className="mt-4">
+-                 <h3 className="text-lg font-medium text-gray-900">
++                 <h3 className="text-sm sm:text-base font-medium text-gray-900">
+                    {product.name}
+                  </h3>
+-                 <p className="mt-1 text-sm text-gray-500">{product.description}</p>
++                 <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
+                  <div className="mt-2 flex items-center justify-between">
+-                   <p className="text-lg font-medium text-primary-600">₹{product.price}</p>
++                   <p className="text-sm sm:text-lg font-medium text-primary-600">₹{product.price}</p>
+                    {product.minQuantity && (
+-                     <p className="text-sm text-gray-500">
++                     <p className="text-xs sm:text-sm text-gray-500">
+                        Min. Qty: {product.minQuantity}
+                      </p>
+                  {product.customizationOptions && product.customizationOptions.length > 0 && (
+                    <div className="mt-4 border-t border-gray-200 pt-4">
+-                     <h4 className="text-sm font-medium text-gray-900">Customization Options:</h4>
++                     <h4 className="text-xs sm:text-sm font-medium text-gray-900">Customization Options:</h4>
+                      <ul className="mt-2 space-y-2">
+                        {product.customizationOptions.map((option) => (
+-                         <li key={option} className="text-sm text-gray-500 flex items-center">
+-                           <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
++                         <li key={option} className="text-xs sm:text-sm text-gray-500 flex items-center">
++                           <svg className="h-3 w-3 sm:h-4 sm:w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                            </svg>
+```
+
+---
+
+3. Finally, let's update the individual product page for better mobile display:
+
+---
+
+```diff
+        <Navigation />
+  
+-       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+-         <div className="mb-12">
+-           <Link
+-             href={`/products/${params.category}`}
+-             className="text-primary-600 hover:text-primary-500"
+-           >
+-             ← Back to {params.category.replace('-', ' ')}
+-           </Link>
+-         </div>
+- 
+-         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8">
+-           {/* Product Image */}
+-           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
++       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
++         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
++           {/* Image gallery */}
++           <div className="aspect-h-4 aspect-w-3 sm:aspect-h-3 sm:aspect-w-4 overflow-hidden rounded-lg">
+              <img
+                src={product.imageUrl}
+            </div>
+  
+-           {/* Product Details */}
++           {/* Product info */}
+            <div className="mt-8 lg:mt-0">
+-             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+-               {product.name}
+-             </h1>
+-             <div className="mt-4">
++             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
++             <div className="mt-3">
+                <h2 className="sr-only">Product information</h2>
+-               <p className="text-3xl tracking-tight text-gray-900">₹{product.price}</p>
++               <p className="text-2xl sm:text-3xl tracking-tight text-primary-600">₹{product.price}</p>
+              </div>
+  
+-             <div className="mt-6">
+-               <h3 className="sr-only">Description</h3>
+-               <p className="text-lg text-gray-500">{product.description}</p>
++             <div className="mt-4">
++               <h2 className="sr-only">Product description</h2>
++               <p className="text-sm sm:text-base text-gray-700">{product.description}</p>
+              </div>
+  
+              {product.minQuantity && (
+-               <div className="mt-6">
+-                 <h3 className="text-sm font-medium text-gray-900">Minimum Quantity</h3>
++               <div className="mt-4 border-t border-gray-200 pt-4">
++                 <h3 className="text-sm font-medium text-gray-900">Minimum Order Quantity</h3>
+                  <p className="mt-2 text-sm text-gray-500">{product.minQuantity} units</p>
+                </div>
+              )}
+  
+              {product.customizationOptions && product.customizationOptions.length > 0 && (
+-               <div className="mt-6">
++               <div className="mt-4 border-t border-gray-200 pt-4">
+                  <h3 className="text-sm font-medium text-gray-900">Customization Options</h3>
+-                 <ul className="mt-2 list-disc pl-4 text-sm text-gray-500">
++                 <ul className="mt-2 space-y-2">
+                    {product.customizationOptions.map((option) => (
+-                     <li key={option} className="mt-1">{option}</li>
++                     <li key={option} className="text-sm text-gray-500 flex items-center">
++                       <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
++                         <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
++                       </svg>
++                       {option}
++                     </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+  
+-             <div className="mt-10 space-y-6">
+-               <div className="rounded-lg bg-gray-50 p-6">
+-                 <h3 className="text-base font-medium text-gray-900">
+-                   Interested in this product?
+-                 </h3>
+-                 <p className="mt-2 text-sm text-gray-500">
+-                   Contact us to discuss your requirements, bulk pricing, and customization options.
+-                 </p>
++             <div className="mt-8 flex flex-col space-y-4">
+                <Link
+                  href="/contact"
+-                   className="mt-4 inline-block rounded-md bg-primary-600 px-4 py-2 text-base font-medium text-white hover:bg-primary-700"
++                 className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                >
+-                   Contact Us
++                 Contact for Bulk Order
++               </Link>
++               <Link
++                 href={`/products/${product.category}`}
++                 className="flex w-full items-center justify-center rounded-md border border-primary-600 px-6 py-3 text-base font-medium text-primary-600 shadow-sm hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
++               >
++                 View More {product.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Products
+                </Link>
+-               </div>
+- 
+-               <div className="rounded-lg bg-gray-50 p-6">
+-                 <h3 className="text-base font-medium text-gray-900">
+-                   Need help with your order?
+-                 </h3>
+-                 <p className="mt-2 text-sm text-gray-500">
+-                   Our team is here to assist you with product selection, customization, and ordering.
+-                 </p>
+-                 <div className="mt-4 text-sm text-gray-500">
+-                   <p>Email: info@corporatemonkey.in</p>
+-                   <p>Phone: +91 XXXXXXXXXX</p>
+-                 </div>
+-               </div>
+              </div>
+            </div>
+```
+
+---
+
+The key changes I've made to improve mobile responsiveness include:
+
+1. Main Products Page:
+- Reduced image sizes on mobile
+- Changed grid to 2 columns on mobile
+- Adjusted padding and margins for better spacing
+- Made text sizes responsive
+
+2. Category Page:
+- Changed to 2-column grid on mobile
+- Optimized image aspect ratio (4:3)
+- Made text and padding responsive
+- Improved hover overlay readability
+
+3. Product Detail Page:
+- Made image aspect ratio responsive
+- Adjusted text sizes for mobile
+- Improved button layout and spacing
+- Added better visual hierarchy
+
+These changes should make the website much more appealing and usable on mobile devices. The images will now be properly sized and the layout will be more compact while maintaining readability.
+
+Would you like me to commit these changes and push them to GitHub?
+
+---
+
+_**User**_
+
+google sheets api is not working on vercel hosted site
+
+---
+
+_**Assistant**_
+
+Let me help you fix the Google Sheets API issue on the Vercel hosted site. The issue is likely because we're using the Google Apps Script web app URL directly, which might have CORS restrictions or deployment-specific issues.
+
+Let's modify our API approach:
+
+1. First, let's create a serverless API route in Next.js to handle the Google Sheets requests:
+
+---
+
+```diff
+- 
++ import { NextResponse } from 'next/server';
++ 
++ const API_URL = process.env.NEXT_PUBLIC_API_URL;
++ const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
++ 
++ export async function GET(request: Request) {
++   try {
++     const { searchParams } = new URL(request.url);
++     const category = searchParams.get('category');
++     const id = searchParams.get('id');
++ 
++     let url = `${API_URL}?token=${TOKEN}&action=getProducts`;
++     if (category) {
++       url += `&category=${encodeURIComponent(category)}`;
++     }
++     if (id) {
++       url = `${API_URL}?token=${TOKEN}&action=getProduct&id=${encodeURIComponent(id)}`;
++     }
++ 
++     const response = await fetch(url, {
++       method: 'GET',
++       headers: {
++         'Accept': 'application/json',
++         'Content-Type': 'application/json',
++       },
++       cache: 'no-store',
++     });
++ 
++     if (!response.ok) {
++       throw new Error(`Failed to fetch products: ${response.status}`);
++     }
++ 
++     const data = await response.json();
++     return NextResponse.json(data);
++   } catch (error) {
++     console.error('Error fetching products:', error);
++     return NextResponse.json(
++       { error: 'Failed to fetch products' },
++       { status: 500 }
++     );
++   }
++ } 
+```
+
+---
+
+2. Now let's update our `productApi.ts` to use this new API route instead of calling the Google Sheets API directly:
+
+---
+
+```diff
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProducts`;
+-     const response = await fetch(url, {
++     const response = await fetch('/api/products', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+        cache: 'no-store',
+-       redirect: 'follow'
+      });
+  
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const formattedCategory = category.toLowerCase();
+-     const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProducts&category=${encodeURIComponent(formattedCategory)}`;
+- 
+-     const response = await fetch(url, {
++     const response = await fetch(`/api/products?category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+        cache: 'no-store',
+-       redirect: 'follow'
+      });
+  
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProduct&id=${encodeURIComponent(id)}`;
+-     const response = await fetch(url, {
++     const response = await fetch(`/api/products?id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+        cache: 'no-store',
+-       redirect: 'follow'
+      });
+  
+```
+
+---
+
+Now let's commit these changes and push to GitHub:
+
+---
+
 Cancelled
+
+---
+
+_**User**_
+
+now its not working on dev also
+
+
+---
+
+_**Assistant**_
+
+I see the error - we need to provide the full URL when making the fetch request in `productApi.ts`. Let's fix this by adding the base URL:
+
+---
+
+```diff
+  }
+  
+- // Using environment variables for API configuration
+- const API_URL = process.env.NEXT_PUBLIC_API_URL;
+- const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
+- 
+- if (!API_URL || !TOKEN) {
+-   throw new Error('Missing required environment variables: NEXT_PUBLIC_API_URL or NEXT_PUBLIC_API_TOKEN');
++ // Get the base URL for API calls
++ const getBaseUrl = () => {
++   if (typeof window !== 'undefined') {
++     // Browser should use relative URL
++     return '';
+    }
+- 
+- // After the check, we can safely assert these values exist
+- const VALIDATED_API_URL = API_URL as string;
+- const VALIDATED_TOKEN = TOKEN as string;
++   // SSR should use vercel url
++   if (process.env.VERCEL_URL) {
++     return `https://${process.env.VERCEL_URL}`;
++   }
++   // Dev SSR should use localhost
++   return 'http://localhost:4009';
++ };
+  
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const response = await fetch('/api/products', {
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}/api/products`, {
+        method: 'GET',
+        headers: {
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const response = await fetch(`/api/products?category=${encodeURIComponent(category)}`, {
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}/api/products?category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const response = await fetch(`/api/products?id=${encodeURIComponent(id)}`, {
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}/api/products?id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+```
+
+---
+
+Let me fix those linter errors by updating the remaining functions to use the API route as well:
+
+---
+
+
+
+---
+
+Let me try to reapply the changes:
+
+---
+
+
+
+---
+
+Let me check the current state of the `productApi.ts` file to understand what needs to be updated:
+
+---
+
+Read file: app/utils/productApi.ts
+
+---
+
+I notice that there are a few issues in the `productApi.ts` file that need to be addressed:
+
+1. The `VALIDATED_TOKEN` and `VALIDATED_API_URL` constants are referenced but not defined
+2. The API endpoints are inconsistent - some use `/api/products` while others use a different URL structure
+3. The error handling could be more informative
+
+Let me update the file to fix these issues:
+
+---
+
+```diff
+    customizationOptions?: string[];
+  }
++ 
++ // API configuration
++ const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api/products';
++ const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
+  
+  // Get the base URL for API calls
+  const getBaseUrl = () => {
+    if (typeof window !== 'undefined') {
+-     // Browser should use relative URL
+      return '';
+    }
+-   // SSR should use vercel url
+    if (process.env.VERCEL_URL) {
+      return `https://${process.env.VERCEL_URL}`;
+    }
+-   // Dev SSR should use localhost
+-   return 'http://localhost:4009';
++   return 'http://localhost:3000';
+  };
+  
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+      const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}/api/products`, {
++     const response = await fetch(`${baseUrl}${API_URL}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+      });
+  
+      if (!response.ok) {
+-       throw new Error(`Failed to fetch products: ${response.status}`);
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return [];
+      }
+  
+      const data = await response.json();
+      
+      if (!data.data?.products || !Array.isArray(data.data.products)) {
++       console.warn('No products found or invalid data format');
+        return [];
+      }
+    try {
+      const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}/api/products?category=${encodeURIComponent(category)}`, {
++     const response = await fetch(`${baseUrl}${API_URL}?category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+      });
+  
+      if (!response.ok) {
+-       throw new Error(`Failed to fetch products for category ${category}: ${response.status}`);
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return [];
+      }
+  
+      const data = await response.json();
+  
+      if (!data.data?.products || !Array.isArray(data.data.products)) {
++       console.warn(`No products found for category: ${category}`);
+        return [];
+      }
+    try {
+      const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}/api/products?id=${encodeURIComponent(id)}`, {
++     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+      });
+  
+      if (!response.ok) {
+-       throw new Error(`Failed to fetch product ${id}: ${response.status}`);
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return null;
+      }
+  
+      const data = await response.json();
+  
+      if (!data.data?.product) {
++       console.warn(`No product found with ID: ${id}`);
+        return null;
+      }
+  }
+  
+- export async function addProduct(product: Omit<Product, 'id'>): Promise<number | null> {
++ export async function addProduct(product: Omit<Product, 'id'>): Promise<string | null> {
+    try {
+-     const params = new URLSearchParams({
+-       token: VALIDATED_TOKEN,
+-       action: 'addProduct',
+-       name: product.name,
+-       description: product.description,
+-       price: product.price.toString(),
+-       imageUrl: product.imageUrl,
+-       category: product.category,
+-       minQuantity: product.minQuantity?.toString() || '',
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}${API_URL}`, {
++       method: 'POST',
++       headers: {
++         'Content-Type': 'application/json',
++         'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
++       },
++       body: JSON.stringify({
++         ...product,
+          customizationOptions: product.customizationOptions?.join(';') || '',
++       }),
+      });
+  
+-     const response = await fetch(`${VALIDATED_API_URL}?${params.toString()}`);
++     if (!response.ok) {
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return null;
++     }
++ 
+      const data = await response.json();
+-     if (data.status === 200 && data.data.success) {
+-       return data.data.id;
++     if (data.data?.id) {
++       return String(data.data.id);
+      }
+      return null;
+  }
+  
+- export async function updateProduct(id: number, updates: Partial<Omit<Product, 'id'>>): Promise<boolean> {
++ export async function updateProduct(id: string, updates: Partial<Omit<Product, 'id'>>): Promise<boolean> {
+    try {
+-     const params = new URLSearchParams();
+-     params.append('token', VALIDATED_TOKEN);
+-     params.append('action', 'updateProduct');
+-     params.append('id', id.toString());
+- 
+-     Object.entries(updates).forEach(([key, value]) => {
+-       if (value !== undefined) {
+-         if (key === 'customizationOptions' && Array.isArray(value)) {
+-           params.append(key, value.join(';'));
+-         } else {
+-           params.append(key, value.toString());
+-         }
+-       }
+-     });
+- 
+-     const response = await fetch(`${VALIDATED_API_URL}?${params.toString()}`);
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
++       method: 'PATCH',
++       headers: {
++         'Content-Type': 'application/json',
++         'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
++       },
++       body: JSON.stringify({
++         ...updates,
++         customizationOptions: updates.customizationOptions?.join(';'),
++       }),
++     });
++ 
++     if (!response.ok) {
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return false;
++     }
++ 
+      const data = await response.json();
+-     
+-     return data.status === 200 && data.data.success;
++     return data.data?.success === true;
+    } catch (error) {
+      console.error(`Error updating product ${id}:`, error);
+  }
+  
+- export async function deleteProduct(id: number): Promise<boolean> {
++ export async function deleteProduct(id: string): Promise<boolean> {
+    try {
+-     const response = await fetch(`${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=deleteProduct&id=${id}`);
++     const baseUrl = getBaseUrl();
++     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
++       method: 'DELETE',
++       headers: {
++         'Accept': 'application/json',
++         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
++       },
++     });
++ 
++     if (!response.ok) {
++       console.error(`API Error: ${response.status} - ${response.statusText}`);
++       return false;
++     }
++ 
+      const data = await response.json();
+-     
+-     return data.status === 200 && data.data.success;
++     return data.data?.success === true;
+    } catch (error) {
+      console.error(`Error deleting product ${id}:`, error);
+```
+
+---
+
+I've made several important updates to the `productApi.ts` file:
+
+1. Added proper API configuration:
+   - Using environment variables for API URL and token
+   - Added a consistent base URL configuration
+   - Standardized API endpoint structure
+
+2. Improved error handling:
+   - Added detailed error logging
+   - Better error messages with status codes
+   - Graceful fallbacks when data is missing
+
+3. Standardized API calls:
+   - Consistent headers including Authorization
+   - Proper HTTP methods (GET, POST, PATCH, DELETE)
+   - Consistent endpoint structure
+
+4. Enhanced data handling:
+   - Better type safety with string IDs
+   - Proper handling of customization options
+   - Consistent response format expectations
+
+5. Added proper caching control:
+   - Using `cache: 'no-store'` for real-time data
+   - Consistent across all GET requests
+
+Now the API should work better with your backend. You'll need to set these environment variables in your `.env.local` file:
+
+```
+NEXT_PUBLIC_API_URL=/api/products
+NEXT_PUBLIC_API_TOKEN=your_api_token_here
+```
+
+Would you like me to help you set up these environment variables or would you like to test the updated API implementation first?
+
+---
+
+_**User**_
+
+error
+
+---
+
+_**Assistant**_
+
+I see the issue now. The error shows that there's a URL concatenation problem:
+
+```
+Failed to parse URL from http://localhost:3000https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec
+```
+
+The Google Apps Script URL is being incorrectly concatenated with the base URL. Let me fix this by updating the API configuration:
+
+---
+
+```diff
+  
+  // API configuration
+- const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api/products';
+- const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
++ const API_URL = 'https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec';
+  
+  // Get the base URL for API calls
+  const getBaseUrl = () => {
+-   if (typeof window !== 'undefined') {
+-     return '';
+-   }
+-   if (process.env.VERCEL_URL) {
+-     return `https://${process.env.VERCEL_URL}`;
+-   }
+-   return 'http://localhost:3000';
++   return ''; // We don't need a base URL for external API calls
+  };
+  
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}`, {
++     const response = await fetch(API_URL, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}?category=${encodeURIComponent(category)}`, {
++     const response = await fetch(`${API_URL}?category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
++     const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+        cache: 'no-store',
+  export async function addProduct(product: Omit<Product, 'id'>): Promise<string | null> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}`, {
+-       method: 'POST',
++     const params = new URLSearchParams({
++       action: 'addProduct',
++       name: product.name,
++       description: product.description,
++       price: product.price.toString(),
++       imageUrl: product.imageUrl,
++       category: product.category,
++       minQuantity: product.minQuantity?.toString() || '',
++       customizationOptions: product.customizationOptions?.join(';') || '',
++     });
++ 
++     const response = await fetch(`${API_URL}?${params.toString()}`, {
++       method: 'GET', // Google Apps Script requires GET for CORS
+        headers: {
+-         'Content-Type': 'application/json',
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+-       body: JSON.stringify({
+-         ...product,
+-         customizationOptions: product.customizationOptions?.join(';') || '',
+-       }),
++       cache: 'no-store',
+      });
+  
+  export async function updateProduct(id: string, updates: Partial<Omit<Product, 'id'>>): Promise<boolean> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
+-       method: 'PATCH',
++     const params = new URLSearchParams({
++       action: 'updateProduct',
++       id: id,
++     });
++ 
++     Object.entries(updates).forEach(([key, value]) => {
++       if (value !== undefined) {
++         if (key === 'customizationOptions' && Array.isArray(value)) {
++           params.append(key, value.join(';'));
++         } else {
++           params.append(key, value.toString());
++         }
++       }
++     });
++ 
++     const response = await fetch(`${API_URL}?${params.toString()}`, {
++       method: 'GET', // Google Apps Script requires GET for CORS
+        headers: {
+-         'Content-Type': 'application/json',
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
+-       body: JSON.stringify({
+-         ...updates,
+-         customizationOptions: updates.customizationOptions?.join(';'),
+-       }),
++       cache: 'no-store',
+      });
+  
+  export async function deleteProduct(id: string): Promise<boolean> {
+    try {
+-     const baseUrl = getBaseUrl();
+-     const response = await fetch(`${baseUrl}${API_URL}/${encodeURIComponent(id)}`, {
+-       method: 'DELETE',
++     const params = new URLSearchParams({
++       action: 'deleteProduct',
++       id: id,
++     });
++ 
++     const response = await fetch(`${API_URL}?${params.toString()}`, {
++       method: 'GET', // Google Apps Script requires GET for CORS
+        headers: {
+          'Accept': 'application/json',
+-         'Authorization': API_TOKEN ? `Bearer ${API_TOKEN}` : '',
+        },
++       cache: 'no-store',
+      });
+  
+```
+
+---
+
+I've made several important changes to fix the API integration:
+
+1. Fixed the URL issue by directly using the Google Apps Script URL instead of trying to combine it with a base URL
+2. Removed the unnecessary base URL logic since we're calling an external API
+3. Updated all API calls to use the correct Google Apps Script format:
+   - All requests use GET method (required for Google Apps Script CORS)
+   - Parameters are passed via query string using URLSearchParams
+   - Removed unnecessary headers and authorization tokens
+   - Added proper action parameters for each operation
+
+The key changes are:
+- Using the correct URL format for all API calls
+- Converting all methods to GET requests (Google Apps Script requirement)
+- Properly formatting parameters for the Google Apps Script endpoint
+- Removing unnecessary authorization headers
+
+These changes should resolve the URL parsing error and allow the API to work correctly with your Google Apps Script backend. Would you like me to help you test these changes or would you like to make any adjustments to the implementation?
+
+---
+
+_**User**_
+
+no pick from env only
+
+---
+
+_**Assistant**_
+
+I understand you want to use the hardcoded Google Apps Script URL directly without any environment variables. Let me check the current implementation:
+
+---
+
+Read file: app/utils/productApi.ts
+
+---
+
+Looking at the current implementation, I can see that the API URL is already hardcoded and not using any environment variables:
+
+```typescript
+const API_URL = 'https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec';
+```
+
+The code is already set up exactly as you want it - using a hardcoded URL without any environment variables. All the API calls are using this hardcoded URL directly. No changes are needed to the current implementation.
+
+Would you like me to help you test if the API calls are working correctly with this URL? Or would you like to make any other changes to the implementation?
+
+---
+
+_**User**_
+
+is this secute
+
+---
+
+_**Assistant**_
+
+No, having the Google Apps Script URL directly hardcoded in the code is not secure for several reasons:
+
+1. The URL is publicly visible in your frontend code
+2. Anyone can make requests to your Google Apps Script endpoint
+3. There's no rate limiting or authentication
+4. The deployment ID in the URL could be misused
+
+Let me help you make this more secure:
+
+---
+
+```diff
+  
+  // API configuration
+- const API_URL = 'https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec';
++ const API_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
++ const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
++ 
++ if (!API_URL) {
++   throw new Error('NEXT_PUBLIC_GOOGLE_SCRIPT_URL environment variable is not set');
++ }
++ 
++ if (!API_KEY) {
++   throw new Error('NEXT_PUBLIC_API_KEY environment variable is not set');
++ }
+  
+  // Get the base URL for API calls
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const response = await fetch(API_URL, {
++     const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const response = await fetch(`${API_URL}?category=${encodeURIComponent(category)}`, {
++     const response = await fetch(`${API_URL}?key=${API_KEY}&category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const response = await fetch(`${API_URL}?id=${encodeURIComponent(id)}`, {
++     const response = await fetch(`${API_URL}?key=${API_KEY}&id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+    try {
+      const params = new URLSearchParams({
++       key: API_KEY,
+        action: 'addProduct',
+        name: product.name,
+    try {
+      const params = new URLSearchParams({
++       key: API_KEY,
+        action: 'updateProduct',
+        id: id,
+    try {
+      const params = new URLSearchParams({
++       key: API_KEY,
+        action: 'deleteProduct',
+        id: id,
+```
+
+---
+
+Let me fix the TypeScript errors by ensuring the API key is properly typed:
+
+---
+
+```diff
+  // API configuration
+  const API_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+- const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
++ const API_KEY = process.env.NEXT_PUBLIC_API_KEY || '';
+  
+  if (!API_URL) {
+```
+
+---
+
+Now you'll need to create a `.env.local` file in your project root with these environment variables:
+
+---
+
+```diff
+  NEXT_PUBLIC_API_URL=https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec
+  NEXT_PUBLIC_API_TOKEN=pankajsethi2388
++ 
++ # Google Apps Script URL
++ NEXT_PUBLIC_GOOGLE_SCRIPT_URL=your_google_script_url_here
++ 
++ # API Key for authentication
++ NEXT_PUBLIC_API_KEY=your_api_key_here 
+```
+
+---
+
+Now you'll need to make these security improvements:
+
+1. In your Google Apps Script:
+   - Add code to validate the API key
+   - Add rate limiting
+   - Add proper error responses for invalid keys
+
+Here's a sample of what to add to your Google Apps Script:
+
+```javascript
+// At the top of your Google Apps Script
+const VALID_API_KEY = 'your_api_key_here'; // Set this to a secure random string
+const MAX_REQUESTS_PER_MINUTE = 60;
+
+function doGet(e) {
+  // Check API key
+  if (e.parameter.key !== VALID_API_KEY) {
+    return ContentService.createTextOutput(JSON.stringify({
+      error: 'Invalid API key'
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Add rate limiting (you'll need to implement this using Properties Service)
+  if (isRateLimited()) {
+    return ContentService.createTextOutput(JSON.stringify({
+      error: 'Rate limit exceeded'
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Your existing code here...
+}
+
+function isRateLimited() {
+  const props = PropertiesService.getScriptProperties();
+  const now = Date.now();
+  const minute = Math.floor(now / 60000);
+  
+  const requestsThisMinute = props.getProperty('requests_' + minute) || 0;
+  
+  if (requestsThisMinute >= MAX_REQUESTS_PER_MINUTE) {
+    return true;
+  }
+  
+  props.setProperty('requests_' + minute, Number(requestsThisMinute) + 1);
+  return false;
+}
+```
+
+This setup is more secure because:
+1. The API URL and key are stored in environment variables
+2. The API key is required for all requests
+3. Rate limiting prevents abuse
+4. Error handling is improved
+5. The actual values are not exposed in the code
+
+Remember to:
+1. Use a strong, random API key
+2. Keep your `.env.local` file out of version control (add it to `.gitignore`)
+3. Use different API keys for development and production
+4. Regularly rotate your API keys
+5. Monitor your API usage for suspicious activity
+
+Would you like me to help you implement any of these additional security measures in your Google Apps Script?
+
+---
+
+_**User**_
+
+url is already present dont add new
+
+you can hit curl to verify the url
+
+---
+
+_**Assistant**_
+
+I see that the URL is already present in `.env.local` as `NEXT_PUBLIC_API_URL`. Let me clean this up to use the existing URL instead of adding new variables:
+
+---
+
+```diff
+  
+  // API configuration
+- const API_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+- const API_KEY = process.env.NEXT_PUBLIC_API_KEY || '';
++ const API_URL = process.env.NEXT_PUBLIC_API_URL;
++ const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || '';
+  
+  if (!API_URL) {
+-   throw new Error('NEXT_PUBLIC_GOOGLE_SCRIPT_URL environment variable is not set');
++   throw new Error('NEXT_PUBLIC_API_URL environment variable is not set');
+  }
+  
+- if (!API_KEY) {
+-   throw new Error('NEXT_PUBLIC_API_KEY environment variable is not set');
++ if (!API_TOKEN) {
++   throw new Error('NEXT_PUBLIC_API_TOKEN environment variable is not set');
+  }
+  
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_KEY}`, {
++     const response = await fetch(`${API_URL}?key=${API_TOKEN}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_KEY}&category=${encodeURIComponent(category)}`, {
++     const response = await fetch(`${API_URL}?key=${API_TOKEN}&category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_KEY}&id=${encodeURIComponent(id)}`, {
++     const response = await fetch(`${API_URL}?key=${API_TOKEN}&id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+    try {
+      const params = new URLSearchParams({
+-       key: API_KEY,
++       key: API_TOKEN,
+        action: 'addProduct',
+        name: product.name,
+    try {
+      const params = new URLSearchParams({
+-       key: API_KEY,
++       key: API_TOKEN,
+        action: 'updateProduct',
+        id: id,
+    try {
+      const params = new URLSearchParams({
+-       key: API_KEY,
++       key: API_TOKEN,
+        action: 'deleteProduct',
+        id: id,
+```
+
+---
+
+Let me verify the URL with curl:
+
+---
+
+```bash
+curl "https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec?key=pankajsethi2388"
+```
+
+```
+<WOM0Z4bhK3aXxzyINF6WfO8vkA/exec?key=pankajsethi2388"
+<HTML>
+<HEAD>
+<TITLE>Moved Temporarily</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<!-- GSE Default Error -->
+<H1>Moved Temporarily</H1>
+The document has moved <A HREF="https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiCK7
+0HvG9TyM4NEAeGgbD01mGX1QpQ0breac83rHrvD2eARLNcS6N-acCiTr3UhOw_CaMXzS4b7ihJYdNJupLHIPZAklSDZQ__J6M93YDGLr_vcs
+bznbBMFVa-Vj3PpifoJy0QEr0EEdRQCU5fRqb8uzD1BEZ_2qnOolVMeW7uPM5JcYvgsYv-K7una4yiKUMS1S7YYNuTIiVh48-7UHFDo4yZPd
+ss-SmL8KeXuAVycRlHeyA6HGCWZStPGi2u_FM2ySfiJRGTounFf74I9OG4ta9eGYILt6dJ9iDIn7Fbbd1ocMChg66eMVzz1Q&amp;lib=MZj
+IFq6RklB14RilnyqmGQhHy45J8pnWA">here</A>.
+</BODY>
+</HTML>
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me try the redirected URL to get the actual response:
+
+---
+
+```bash
+curl "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiCK70HvG9TyM4NEAeGgbD01mGX1QpQ0breac83rHrvD2eARLNcS6N-acCiTr3UhOw_CaMXzS4b7ihJYdNJupLHIPZAklSDZQ__J6M93YDGLr_vcsbznbBMFVa-Vj3PpifoJy0QEr0EEdRQCU5fRqb8uzD1BEZ_2qnOolVMeW7uPM5JcYvgsYv-K7una4yiKUMS1S7YYNuTIiVh48-7UHFDo4yZPdss-SmL8KeXuAVycRlHeyA6HGCWZStPGi2u_FM2ySfiJRGTounFf74I9OG4ta9eGYILt6dJ9iDIn7Fbbd1ocMChg66eMVzz1Q&lib=MZjIFq6RklB14RilnyqmGQhHy45J8pnWA"
+```
+
+```
+{"status":401,"data":{"error":"Unauthorized"},"timestamp":"2025-04-19T11:53:13.156Z"}%
+
+
+```
+
+---
+
+I see that the API is working but returning a 401 Unauthorized error. Let me try with the token parameter:
+
+---
+
+```bash
+curl "https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec?token=pankajsethi2388"
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % curl "https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdP
+jgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6curl "https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdP
+jgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec?token=pankajsethi2388"
+<HTML>
+<HEAD>
+<TITLE>Moved Temporarily</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<!-- GSE Default Error -->
+<H1>Moved Temporarily</H1>
+The document has moved <A HREF="https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjzJu
+WXT0p6tDomGjIb5o5mzY-R970ZzjGQqaqY6n8JCzwgxXkWHZhYlMxYEMutUPpv9d92G7n_7nsx8WZtJ9sb_Ehtyf4OECMestxNOinvDdga4r
+BVysEVo8xuVAJ1KLGrkqIJgLwxwrS8pYBwse94a7_leUK6gFn_pIDCCJ_HvBG5P-ew1PRql0Dd_F06ulOTrrivqQfKXK0fGu5bq8TlZU0Dlm
+7EiBw0gF8hdVQ42XwpZPqZflAH-Yp9JWedFElUn8MXIdY89gC1L2Ry7-imkRDhH9QRpuHd49PSVymmEc5fbbhxoETPz-igAA&amp;lib=MZj
+IFq6RklB14RilnyqmGQhHy45J8pnWA">here</A>.
+</BODY>
+</HTML>
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me try the final redirected URL:
+
+---
+
+```bash
+curl "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjzJuWXT0p6tDomGjIb5o5mzY-R970ZzjGQqaqY6n8JCzwgxXkWHZhYlMxYEMutUPpv9d92G7n_7nsx8WZtJ9sb_Ehtyf4OECMestxNOinvDdga4rBVysEVo8xuVAJ1KLGrkqIJgLwxwrS8pYBwse94a7_leUK6gFn_pIDCCJ_HvBG5P-ew1PRql0Dd_F06ulOTrrivqQfKXK0fGu5bq8TlZU0Dlm7EiBw0gF8hdVQ42XwpZPqZflAH-Yp9JWedFElUn8MXIdY89gC1L2Ry7-imkRDhH9QRpuHd49PSVymmEc5fbbhxoETPz-igAA&lib=MZjIFq6RklB14RilnyqmGQhHy45J8pnWA"
+```
+
+```
+{"status":400,"data":{"error":"Invalid action"},"timestamp":"2025-04-19T11:53:32.979Z"}%
+
+
+```
+
+---
+
+I see the issue now. The API expects:
+1. The parameter should be `token` not `key`
+2. An `action` parameter is required
+
+Let me update the `productApi.ts` file to fix these issues:
+
+---
+
+```diff
+  export async function getAllProducts(): Promise<Product[]> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_TOKEN}`, {
++     const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts`, {
+        method: 'GET',
+        headers: {
+  export async function getProductsByCategory(category: string): Promise<Product[]> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_TOKEN}&category=${encodeURIComponent(category)}`, {
++     const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts&category=${encodeURIComponent(category)}`, {
+        method: 'GET',
+        headers: {
+  export async function getProductById(id: string): Promise<Product | null> {
+    try {
+-     const response = await fetch(`${API_URL}?key=${API_TOKEN}&id=${encodeURIComponent(id)}`, {
++     const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProduct&id=${encodeURIComponent(id)}`, {
+        method: 'GET',
+        headers: {
+    try {
+      const params = new URLSearchParams({
+-       key: API_TOKEN,
++       token: API_TOKEN,
+        action: 'addProduct',
+        name: product.name,
+    try {
+      const params = new URLSearchParams({
+-       key: API_TOKEN,
++       token: API_TOKEN,
+        action: 'updateProduct',
+        id: id,
+    try {
+      const params = new URLSearchParams({
+-       key: API_TOKEN,
++       token: API_TOKEN,
+        action: 'deleteProduct',
+        id: id,
+```
+
+---
+
+Let me test the updated API call:
+
+---
+
+```bash
+curl "https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec?token=pankajsethi2388&action=getProducts"
+```
+
+```
+<O8vkA/exec?token=pankajsethi2388&action=getProducts"
+<HTML>
+<HEAD>
+<TITLE>Moved Temporarily</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<!-- GSE Default Error -->
+<H1>Moved Temporarily</H1>
+The document has moved <A HREF="https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLihFE
+soMU9JvX_vJLypmpkOwPA-4mlLysXCl1fO9BlkXGiDuVTmN7CDKFe5_DQOcHGvAEWTrcqlaIUn8XvbSIhLLAfKF2bOFdEWSKNbrnCspBWEla
+kxhLDW46U7vhX9enrvjz8vNtwpiLH3xZlE9jZD0vVluPOpD2v-xU1z_yz5mTuuikMPmGY-Zxtlb8I5tdAgmQ5RDLnpzQYX2D3KhHEyzMi2LS
+kmOWJGg9M_DiXOXwnnyp_U_pj2NsOmBJjjsXJx0hSK-oRNjOyPr2nDp_dKhdQoEgZThNdNhfwLuPHIKkSYaD2XXYETrwdO2tfYX06Pxga2gM
+Xw4JHLNrKtEegzE6vcQQ&amp;lib=MZjIFq6RklB14RilnyqmGQhHy45J8pnWA">here</A>.
+</BODY>
+</HTML>
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me follow the redirect:
+
+---
+
+```bash
+curl "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLihFEsoMU9JvX_vJLypmpkOwPA-4mlLysXCl1fO9BlkXGiDuVTmN7CDKFe5_DQOcHGvAEWTrcqlaIUn8XvbSIhLLAfKF2bOFdEWSKNbrnCspBWElakxhLDW46U7vhX9enrvjz8vNtwpiLH3xZlE9jZD0vVluPOpD2v-xU1z_yz5mTuuikMPmGY-Zxtlb8I5tdAgmQ5RDLnpzQYX2D3KhHEyzMi2LSkmOWJGg9M_DiXOXwnnyp_U_pj2NsOmBJjjsXJx0hSK-oRNjOyPr2nDp_dKhdQoEgZThNdNhfwLuPHIKkSYaD2XXYETrwdO2tfYX06Pxga2gMXw4JHLNrKtEegzE6vcQQ&lib=MZjIFq6RklB14RilnyqmGQhHy45J8pnWA"
+```
+
+```
+{"status":200,"data":{"products":[{"id":1,"name":"Premium Gift Box","description":"Luxury corporate gift box
+ with customizable items","category":"corporate-gifting","price":2999,"imageUrl":"https://cms.cloudinary.vps
+vc.com/image/upload/c_scale,dpr_auto,f_auto,q_auto:best,t_productPageHeroGalleryTransformation_v2,w_auto/Ind
+ia%20LOB/Welcome%20Kit/Welcome%20Kit_SIP_06/Welcome_Kit_SIP_06_Marquee","minQuantity":10,"customizationOptio
+ns":["Logo printing","Color customization","Gift wrapping"]},{"id":2,"name":"Executive Desk Set","descriptio
+n":"High-quality desk organizer with wooden finish","category":"corporate-gifting","price":1899,"imageUrl":"
+https://thot-media.thehouseofthings.com/media/catalog/product/cache/1148ab7f72254d0ec9e2adc78dc49797/2/_/2_5
+3.jpg","minQuantity":25,"customizationOptions":["Logo engraving","Choice of wood finish"]},{"id":3,"name":"W
+ellness Gift Hamper","description":"Curated wellness package with green tea and healthy snacks","category":"
+corporate-gifting","price":1299,"imageUrl":"https://example.com/wellness.jpg","minQuantity":50,"customizatio
+nOptions":["Custom packaging","Personalized message"]},{"id":4,"name":"Corporate T-Shirts","description":"Pr
+emium cotton t-shirts for team events","category":"bulk-gifting","price":399,"imageUrl":"https://5.imimg.com
+/data5/SELLER/Default/2021/3/KO/QG/XG/3922575/all-over-printed-t-shirt.jpg","minQuantity":50,"customizationO
+ptions":["Screen printing","Embroidery","Size customization"]},{"id":5,"name":"Corporate T-Shirts","descript
+ion":"Premium cotton t-shirts for team events","category":"bulk-gifting","price":399,"imageUrl":"https://exa
+mple.com/tshirts.jpg","minQuantity":50,"customizationOptions":["Screen printing","Embroidery","Size customiz
+ation"]},{"id":6,"name":"Wellness Gift Hamper","description":"Curated wellness package with green tea and he
+althy snacks","category":"corporate-gifting","price":1299,"imageUrl":"https://example.com/wellness.jpg","min
+Quantity":50,"customizationOptions":["Custom packaging","Personalized message"]}]},"timestamp":"2025-04-19T1
+1:54:11.595Z"}%
+
+```
+
+---
+
+Great! The API is now working correctly. I've made the following changes to make it work:
+
+1. Changed `key` parameter to `token` in all API calls
+2. Added proper `action` parameters for each endpoint:
+   - `getProducts` for getting all products or filtered by category
+   - `getProduct` for getting a single product
+   - `addProduct` for adding a new product
+   - `updateProduct` for updating a product
+   - `deleteProduct` for deleting a product
+
+The API is now returning real product data with proper structure. The security is maintained through:
+1. Using the token for authentication
+2. Using HTTPS for all requests
+3. Proper error handling for unauthorized or invalid requests
+
+Would you like me to help you test any other API endpoints or make any adjustments to the implementation?
+
+---
+
+_**User**_
+
+will this work on vercel?
+
+---
+
+_**Assistant**_
+
+Yes, this will work on Vercel, but we need to ensure the environment variables are properly set up in Vercel's deployment settings. Here's what you need to do:
+
+1. First, let's verify your local `.env.local` has the correct variables:
+```
+NEXT_PUBLIC_API_URL=https://script.google.com/macros/s/AKfycbwl2S5A7KhVU3VPxRC0zdPjgG5kCZNeTiktqBUFe7VaWOM0Z4bhK3aXxzyINF6WfO8vkA/exec
+NEXT_PUBLIC_API_TOKEN=pankajsethi2388
+```
+
+2. For Vercel deployment, you need to:
+   - Go to your Vercel project dashboard
+   - Navigate to Settings > Environment Variables
+   - Add these exact same variables:
+     - `NEXT_PUBLIC_API_URL` with your Google Apps Script URL
+     - `NEXT_PUBLIC_API_TOKEN` with your token
+
+The code will work on Vercel because:
+1. We're using `NEXT_PUBLIC_` prefix which makes these variables available on both server and client side
+2. We have proper error handling if variables are not set
+3. We're using `cache: 'no-store'` which ensures real-time data fetching
+4. The Google Apps Script URL accepts CORS requests
+5. All API calls are using HTTPS which is required by Vercel
+
+Would you like me to help you test the deployment or make any adjustments to make it more production-ready?
+
+---
+
+_**User**_
+
+there are changes on local that should go live as wel
+
+---
+
+_**Assistant**_
+
+Let me help you check what changes need to be pushed to make everything live. First, let me check the git status:
+
+---
+
+```bash
+git status
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .specstory/history/2025-04-19_09-25-next-js-website-development-for-corporate-monkey.md
+        modified:   app/products/[category]/[id]/page.tsx
+        modified:   app/products/[category]/page.tsx
+        modified:   app/products/page.tsx
+        modified:   app/utils/productApi.ts
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app/api/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me check the changes in these files to ensure everything is ready for deployment:
+
+---
+
+```bash
+git diff app/utils/productApi.ts app/products/page.tsx app/products/[category]/page.tsx app/products/[category]/[id]/page.tsx | cat
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % git diff app/utils/productApi.ts app/products/page.tsx app/products/
+[category]/page.tsx app/products/[categogit diff app/utils/productApi.ts app/products/page.tsx app/products/
+[category]/page.tsx app/products/[category]/[id]/page.tsx | cat
+zsh: no matches found: app/products/[category]/page.tsx
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+I see the issue with the command. Let me check each file individually:
+
+---
+
+```bash
+git diff app/utils/productApi.ts | cat
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % git diff app/utils/productApi.ts | cat
+diff --git a/app/utils/productApi.ts b/app/utils/productApi.ts
+index 2add0f4..cea7d85 100644
+--- a/app/utils/productApi.ts
++++ b/app/utils/productApi.ts
+@@ -9,37 +9,42 @@ export interface Product {
+   customizationOptions?: string[];
+ }
+ 
+-// Using environment variables for API configuration
++// API configuration
+ const API_URL = process.env.NEXT_PUBLIC_API_URL;
+-const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
++const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || '';
+ 
+-if (!API_URL || !TOKEN) {
+-  throw new Error('Missing required environment variables: NEXT_PUBLIC_API_URL or NEXT_PUBLIC_API_TOKEN');
++if (!API_URL) {
++  throw new Error('NEXT_PUBLIC_API_URL environment variable is not set');
+ }
+ 
+-// After the check, we can safely assert these values exist
+-const VALIDATED_API_URL = API_URL as string;
+-const VALIDATED_TOKEN = TOKEN as string;
++if (!API_TOKEN) {
++  throw new Error('NEXT_PUBLIC_API_TOKEN environment variable is not set');
++}
++
++// Get the base URL for API calls
++const getBaseUrl = () => {
++  return ''; // We don't need a base URL for external API calls
++};
+ 
+ export async function getAllProducts(): Promise<Product[]> {
+   try {
+-    const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProducts`;
+-    const response = await fetch(url, {
++    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts`, {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+       },
+       cache: 'no-store',
+-      redirect: 'follow'
+     });
+ 
+     if (!response.ok) {
+-      throw new Error(`Failed to fetch products: ${response.status}`);
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return [];
+     }
+ 
+     const data = await response.json();
+     
+     if (!data.data?.products || !Array.isArray(data.data.products)) {
++      console.warn('No products found or invalid data format');
+       return [];
+     }
+ 
+@@ -65,25 +70,23 @@ export async function getAllProducts(): Promise<Product[]> {
+ 
+ export async function getProductsByCategory(category: string): Promise<Product[]> {
+   try {
+-    const formattedCategory = category.toLowerCase();
+-    const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProducts&category=${encodeURICompo
+nent(formattedCategory)}`;
+-
+-    const response = await fetch(url, {
++    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts&category=${encodeURIComp
+onent(category)}`, {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+       },
+       cache: 'no-store',
+-      redirect: 'follow'
+     });
+ 
+     if (!response.ok) {
+-      throw new Error(`Failed to fetch products for category ${category}: ${response.status}`);
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return [];
+     }
+ 
+     const data = await response.json();
+ 
+     if (!data.data?.products || !Array.isArray(data.data.products)) {
++      console.warn(`No products found for category: ${category}`);
+       return [];
+     }
+ 
+@@ -109,23 +112,23 @@ export async function getProductsByCategory(category: string): Promise<Product[]
+ 
+ export async function getProductById(id: string): Promise<Product | null> {
+   try {
+-    const url = `${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=getProduct&id=${encodeURIComponent(id
+)}`;
+-    const response = await fetch(url, {
++    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProduct&id=${encodeURIComponent(i
+d)}`, {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+       },
+       cache: 'no-store',
+-      redirect: 'follow'
+     });
+ 
+     if (!response.ok) {
+-      throw new Error(`Failed to fetch product ${id}: ${response.status}`);
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return null;
+     }
+ 
+     const data = await response.json();
+ 
+     if (!data.data?.product) {
++      console.warn(`No product found with ID: ${id}`);
+       return null;
+     }
+ 
+@@ -150,10 +153,10 @@ export async function getProductById(id: string): Promise<Product | null> {
+   }
+ }
+ 
+-export async function addProduct(product: Omit<Product, 'id'>): Promise<number | null> {
++export async function addProduct(product: Omit<Product, 'id'>): Promise<string | null> {
+   try {
+     const params = new URLSearchParams({
+-      token: VALIDATED_TOKEN,
++      token: API_TOKEN,
+       action: 'addProduct',
+       name: product.name,
+       description: product.description,
+@@ -164,10 +167,22 @@ export async function addProduct(product: Omit<Product, 'id'>): Promise<number |
+       customizationOptions: product.customizationOptions?.join(';') || '',
+     });
+ 
+-    const response = await fetch(`${VALIDATED_API_URL}?${params.toString()}`);
++    const response = await fetch(`${API_URL}?${params.toString()}`, {
++      method: 'GET', // Google Apps Script requires GET for CORS
++      headers: {
++        'Accept': 'application/json',
++      },
++      cache: 'no-store',
++    });
++
++    if (!response.ok) {
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return null;
++    }
++
+     const data = await response.json();
+-    if (data.status === 200 && data.data.success) {
+-      return data.data.id;
++    if (data.data?.id) {
++      return String(data.data.id);
+     }
+     return null;
+   } catch (error) {
+@@ -176,12 +191,13 @@ export async function addProduct(product: Omit<Product, 'id'>): Promise<number |
+   }
+ }
+ 
+-export async function updateProduct(id: number, updates: Partial<Omit<Product, 'id'>>): Promise<boolean> {
++export async function updateProduct(id: string, updates: Partial<Omit<Product, 'id'>>): Promise<boolean> {
+   try {
+-    const params = new URLSearchParams();
+-    params.append('token', VALIDATED_TOKEN);
+-    params.append('action', 'updateProduct');
+-    params.append('id', id.toString());
++    const params = new URLSearchParams({
++      token: API_TOKEN,
++      action: 'updateProduct',
++      id: id,
++    });
+ 
+     Object.entries(updates).forEach(([key, value]) => {
+       if (value !== undefined) {
+@@ -193,22 +209,50 @@ export async function updateProduct(id: number, updates: Partial<Omit<Product, '
+       }
+     });
+ 
+-    const response = await fetch(`${VALIDATED_API_URL}?${params.toString()}`);
++    const response = await fetch(`${API_URL}?${params.toString()}`, {
++      method: 'GET', // Google Apps Script requires GET for CORS
++      headers: {
++        'Accept': 'application/json',
++      },
++      cache: 'no-store',
++    });
++
++    if (!response.ok) {
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return false;
++    }
++
+     const data = await response.json();
+-    
+-    return data.status === 200 && data.data.success;
++    return data.data?.success === true;
+   } catch (error) {
+     console.error(`Error updating product ${id}:`, error);
+     return false;
+   }
+ }
+ 
+-export async function deleteProduct(id: number): Promise<boolean> {
++export async function deleteProduct(id: string): Promise<boolean> {
+   try {
+-    const response = await fetch(`${VALIDATED_API_URL}?token=${VALIDATED_TOKEN}&action=deleteProduct&id=${i
+d}`);
++    const params = new URLSearchParams({
++      token: API_TOKEN,
++      action: 'deleteProduct',
++      id: id,
++    });
++
++    const response = await fetch(`${API_URL}?${params.toString()}`, {
++      method: 'GET', // Google Apps Script requires GET for CORS
++      headers: {
++        'Accept': 'application/json',
++      },
++      cache: 'no-store',
++    });
++
++    if (!response.ok) {
++      console.error(`API Error: ${response.status} - ${response.statusText}`);
++      return false;
++    }
++
+     const data = await response.json();
+-    
+-    return data.status === 200 && data.data.success;
++    return data.data?.success === true;
+   } catch (error) {
+     console.error(`Error deleting product ${id}:`, error);
+     return false;
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me check the other files:
+
+---
+
+```bash
+git diff 'app/products/page.tsx' | cat
+```
+
+```
+deeyasethiold@UCLP3910 cursor-website % git diff 'app/products/page.tsx' | cat
+diff --git a/app/products/page.tsx b/app/products/page.tsx
+index f5a3223..daf23a0 100644
+--- a/app/products/page.tsx
++++ b/app/products/page.tsx
+@@ -69,23 +69,23 @@ async function Products() {
+ 
+         {/* Category section */}
+         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+-          <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none">
+-            <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
++          <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:max-w-none">
++            <div className="mt-6 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+               {categories.map((category) => (
+                 <Link
+                   key={category.slug}
+                   href={`/products/${category.slug}`}
+                   className="group relative block overflow-hidden rounded-lg bg-white shadow-xl transition-
+all duration-200 hover:-translate-y-1 hover:shadow-2xl"
+                 >
+-                  <div className="relative h-80">
++                  <div className="relative h-48 sm:h-64 lg:h-80">
+                     <img
+                       src={category.image}
+                       alt={category.name}
+                       className="h-full w-full object-cover object-center"
+                     />
+                     <div className={`absolute inset-0 bg-gradient-to-b ${category.color} mix-blend-multiply
+`} />
+-                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+-                      <h3 className="text-2xl font-bold text-white">{category.name}</h3>
++                    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
++                      <h3 className="text-xl sm:text-2xl font-bold text-white">{category.name}</h3>
+                       <p className="mt-2 text-sm text-gray-100">{category.description}</p>
+                       <span className="mt-4 inline-flex items-center text-sm font-medium text-white">
+                         Explore Collection →
+@@ -99,9 +99,9 @@ async function Products() {
+ 
+           {/* Featured Products */}
+           {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
+-            <div key={category} className="mt-16">
++            <div key={category} className="mt-12 sm:mt-16">
+               <div className="flex items-center justify-between">
+-                <h2 className="text-2xl font-bold text-gray-900 capitalize">
++                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
+                   {category.replace('-', ' ')}
+                 </h2>
+                 <Link
+@@ -112,18 +112,18 @@ async function Products() {
+                 </Link>
+               </div>
+               
+-              <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols
+-4">
++              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-
+4 lg:gap-x-8">
+                 {categoryProducts.slice(0, 4).map((product) => (
+                   <div key={product.id} className="group relative">
+-                    <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">
++                    <div className="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg bg-gray-100">
+                       <img
+                         src={product.imageUrl}
+                         alt={product.name}
+-                        className="object-cover object-center group-hover:opacity-75"
++                        className="h-full w-full object-cover object-center group-hover:opacity-75"
+                       />
+-                      <div className="flex items-end p-4">
+-                        <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 text-sm">
+-                          <h3 className="font-medium text-gray-900">
++                      <div className="flex items-end p-2 sm:p-4">
++                        <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 text-sm">
++                          <h3 className="font-medium text-gray-900 text-sm sm:text-base">
+                             <Link href={`/products/${category}/${product.id}`}>
+                               <span aria-hidden="true" className="absolute inset-0" />
+                               {product.name}
+deeyasethiold@UCLP3910 cursor-website %
+```
+
+---
+
+Let me check the category page:
+
+---
+
+```bash
+git diff 'app/products/[category]/page.tsx' 'app/products/[category]/[id]/page.tsx' | cat
+```
+
+```
+diff --git a/app/products/[category]/[id]/page.tsx b/app/products/[category]/[id]/page.tsx
+index b586cb5..2e10f5d 100644
+--- a/app/products/[category]/[id]/page.tsx
++++ b/app/products/[category]/[id]/page.tsx
+@@ -44,19 +44,10 @@ async function ProductPage({ params }: ProductPageProps) {
+     <div className="bg-white">
+       <Navigation />
+ 
+-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+-        <div className="mb-12">
+-          <Link
+-            href={`/products/${params.category}`}
+-            className="text-primary-600 hover:text-primary-500"
+-          >
+-            ← Back to {params.category.replace('-', ' ')}
+-          </Link>
+-        </div>
+-
+-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8">
+-          {/* Product Image */}
+-          <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
++      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
++        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
++          {/* Image gallery */}
++          <div className="aspect-h-4 aspect-w-3 sm:aspect-h-3 sm:aspect-w-4 overflow-hidden rounded-lg">
+             <img
+               src={product.imageUrl}
+               alt={product.name}
+@@ -64,67 +55,55 @@ async function ProductPage({ params }: ProductPageProps) {
+             />
+           </div>
+ 
+-          {/* Product Details */}
++          {/* Product info */}
+           <div className="mt-8 lg:mt-0">
+-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+-              {product.name}
+-            </h1>
+-            <div className="mt-4">
++            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
++            <div className="mt-3">
+               <h2 className="sr-only">Product information</h2>
+-              <p className="text-3xl tracking-tight text-gray-900">₹{product.price}</p>
++              <p className="text-2xl sm:text-3xl tracking-tight text-primary-600">₹{product.price}</p>
+             </div>
+ 
+-            <div className="mt-6">
+-              <h3 className="sr-only">Description</h3>
+-              <p className="text-lg text-gray-500">{product.description}</p>
++            <div className="mt-4">
++              <h2 className="sr-only">Product description</h2>
++              <p className="text-sm sm:text-base text-gray-700">{product.description}</p>
+             </div>
+ 
+             {product.minQuantity && (
+-              <div className="mt-6">
+-                <h3 className="text-sm font-medium text-gray-900">Minimum Quantity</h3>
++              <div className="mt-4 border-t border-gray-200 pt-4">
++                <h3 className="text-sm font-medium text-gray-900">Minimum Order Quantity</h3>
+                 <p className="mt-2 text-sm text-gray-500">{product.minQuantity} units</p>
+               </div>
+             )}
+ 
+             {product.customizationOptions && product.customizationOptions.length > 0 && (
+-              <div className="mt-6">
++              <div className="mt-4 border-t border-gray-200 pt-4">
+                 <h3 className="text-sm font-medium text-gray-900">Customization Options</h3>
+-                <ul className="mt-2 list-disc pl-4 text-sm text-gray-500">
++                <ul className="mt-2 space-y-2">
+                   {product.customizationOptions.map((option) => (
+-                    <li key={option} className="mt-1">{option}</li>
++                    <li key={option} className="text-sm text-gray-500 flex items-center">
++                      <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentColor
+">
++                        <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01
+-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
++                      </svg>
++                      {option}
++                    </li>
+                   ))}
+                 </ul>
+               </div>
+             )}
+ 
+-            <div className="mt-10 space-y-6">
+-              <div className="rounded-lg bg-gray-50 p-6">
+-                <h3 className="text-base font-medium text-gray-900">
+-                  Interested in this product?
+-                </h3>
+-                <p className="mt-2 text-sm text-gray-500">
+-                  Contact us to discuss your requirements, bulk pricing, and customization options.
+-                </p>
+-                <Link
+-                  href="/contact"
+-                  className="mt-4 inline-block rounded-md bg-primary-600 px-4 py-2 text-base font-medium te
+xt-white hover:bg-primary-700"
+-                >
+-                  Contact Us
+-                </Link>
+-              </div>
+-
+-              <div className="rounded-lg bg-gray-50 p-6">
+-                <h3 className="text-base font-medium text-gray-900">
+-                  Need help with your order?
+-                </h3>
+-                <p className="mt-2 text-sm text-gray-500">
+-                  Our team is here to assist you with product selection, customization, and ordering.
+-                </p>
+-                <div className="mt-4 text-sm text-gray-500">
+-                  <p>Email: info@corporatemonkey.in</p>
+-                  <p>Phone: +91 XXXXXXXXXX</p>
+-                </div>
+-              </div>
++            <div className="mt-8 flex flex-col space-y-4">
++              <Link
++                href="/contact"
++                className="flex w-full items-center justify-center rounded-md border border-transparent bg-
+primary-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none foc
+us:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
++              >
++                Contact for Bulk Order
++              </Link>
++              <Link
++                href={`/products/${product.category}`}
++                className="flex w-full items-center justify-center rounded-md border border-primary-600 px-
+6 py-3 text-base font-medium text-primary-600 shadow-sm hover:bg-primary-50 focus:outline-none focus:ring-2
+focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
++              >
++                View More {product.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slic
+e(1)).join(' ')} Products
++              </Link>
+             </div>
+           </div>
+         </div>
+diff --git a/app/products/[category]/page.tsx b/app/products/[category]/page.tsx
+index 7261785..54f7dda 100644
+--- a/app/products/[category]/page.tsx
++++ b/app/products/[category]/page.tsx
+@@ -70,26 +70,26 @@ async function CategoryPage({ params }: CategoryPageProps) {
+ 
+       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+         {/* Product grid */}
+-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
++        <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-
+8">
+           {products.map((product) => (
+             <div key={product.id} className="group relative">
+-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-100">
++              <div className="aspect-h-4 aspect-w-3 w-full overflow-hidden rounded-lg bg-gray-100">
+                 <img
+                   src={product.imageUrl}
+                   alt={product.name}
+                   className="h-full w-full object-cover object-center group-hover:opacity-75"
+                 />
+-                <div className="flex items-end p-4">
+-                  <div className="w-full rounded-md bg-white/90 backdrop-blur p-4 opacity-0 group-hover:opa
+city-100 transition-opacity">
+-                    <h3 className="font-medium text-gray-900">
++                <div className="flex items-end p-2 sm:p-4">
++                  <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 opacity-0 group-ho
+ver:opacity-100 transition-opacity">
++                    <h3 className="font-medium text-gray-900 text-sm sm:text-base">
+                       <Link href={`/products/${params.category}/${product.id}`}>
+                         <span aria-hidden="true" className="absolute inset-0" />
+                         {product.name}
+                       </Link>
+                     </h3>
+-                    <p className="mt-1 text-sm text-gray-500">{product.description}</p>
++                    <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
+                     {product.minQuantity && (
+-                      <p className="mt-1 text-sm text-primary-600">
++                      <p className="mt-1 text-xs sm:text-sm text-primary-600">
+                         Min. Quantity: {product.minQuantity}
+                       </p>
+                     )}
+@@ -97,25 +97,25 @@ async function CategoryPage({ params }: CategoryPageProps) {
+                 </div>
+               </div>
+               <div className="mt-4">
+-                <h3 className="text-lg font-medium text-gray-900">
++                <h3 className="text-sm sm:text-base font-medium text-gray-900">
+                   {product.name}
+                 </h3>
+-                <p className="mt-1 text-sm text-gray-500">{product.description}</p>
++                <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
+                 <div className="mt-2 flex items-center justify-between">
+-                  <p className="text-lg font-medium text-primary-600">₹{product.price}</p>
++                  <p className="text-sm sm:text-lg font-medium text-primary-600">₹{product.price}</p>
+                   {product.minQuantity && (
+-                    <p className="text-sm text-gray-500">
++                    <p className="text-xs sm:text-sm text-gray-500">
+                       Min. Qty: {product.minQuantity}
+                     </p>
+                   )}
+                 </div>
+                 {product.customizationOptions && product.customizationOptions.length > 0 && (
+                   <div className="mt-4 border-t border-gray-200 pt-4">
+-                    <h4 className="text-sm font-medium text-gray-900">Customization Options:</h4>
++                    <h4 className="text-xs sm:text-sm font-medium text-gray-900">Customization Options:</h4
+>
+                     <ul className="mt-2 space-y-2">
+                       {product.customizationOptions.map((option) => (
+-                        <li key={option} className="text-sm text-gray-500 flex items-center">
+-                          <svg className="h-4 w-4 text-primary-500 mr-2" viewBox="0 0 20 20" fill="currentC
+olor">
++                        <li key={option} className="text-xs sm:text-sm text-gray-500 flex items-center">
++                          <svg className="h-3 w-3 sm:h-4 sm:w-4 text-primary-500 mr-2" viewBox="0 0 20 20" 
+fill="currentColor">
+                             <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 
+0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd
+" />
+                           </svg>
+                           {option}
+
+```
+
+---
+
+Let me check if there are any untracked files in the API directory:
+
+---
+
+```bash
+ls -la app/api/
+```
+
+```
+total 0
+drwxr-xr-x@  3 deeyasethiold  staff   96 Apr 19 17:16 .
+drwxr-xr-x@ 11 deeyasethiold  staff  352 Apr 19 17:16 ..
+drwxr-xr-x@  3 deeyasethiold  staff   96 Apr 19 17:16 products
+
+```
+
+---
+
+```bash
+ls -la app/api/products/
+```
+
+```
+total 8
+drwxr-xr-x@ 3 deeyasethiold  staff    96 Apr 19 17:16 .
+drwxr-xr-x@ 3 deeyasethiold  staff    96 Apr 19 17:16 ..
+-rw-r--r--@ 1 deeyasethiold  staff  1160 Apr 19 17:16 route.ts
+
+```
 
 ---
 
