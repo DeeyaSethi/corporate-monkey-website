@@ -45,7 +45,12 @@ async function Products() {
   return (
     <div className="bg-white">
       <Navigation />
-
+      
+      {/* Coming Soon Banner */}
+      <div className="bg-primary-600 text-white text-center py-3 px-4">
+        <p className="text-sm sm:text-base font-medium">More product options coming soon on May 25, 2025!</p>
+      </div>
+      
       <div className="relative">
         {/* Hero section */}
         <div className="relative">
@@ -108,7 +113,7 @@ async function Products() {
                   href={`/products/${category}`}
                   className="text-sm font-medium text-primary-600 hover:text-primary-500"
                 >
-                  View all →
+                  View all
                 </Link>
               </div>
               
@@ -129,9 +134,15 @@ async function Products() {
                               {product.name}
                             </Link>
                           </h3>
-                          <p className="mt-1 text-gray-700">₹{product.price}</p>
+                          <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
                         </div>
                       </div>
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="text-sm sm:text-base font-medium text-gray-900">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
                     </div>
                   </div>
                 ))}
