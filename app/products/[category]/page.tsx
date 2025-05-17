@@ -9,13 +9,13 @@ const categoryDetails = {
   'corporate-gifting': {
     title: 'Corporate Gifting',
     description: 'Premium gifting solutions for corporate events, employee recognition, and client appreciation.',
-    image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&auto=format&fit=crop&q=60',
+    image: 'https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-blue-500 to-blue-700'
   },
   'bulk-gifting': {
     title: 'Bulk Gifting',
     description: 'Cost-effective solutions for large-scale corporate events and promotions.',
-    image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&auto=format&fit=crop&q=60',
+    image: 'https://images.pexels.com/photos/7318924/pexels-photo-7318924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-green-500 to-green-700'
   }
 };

@@ -1,62 +1,62 @@
 export const products = [
   {
     id: '1',
-    name: 'Custom Corporate Gift Box',
-    description: 'Premium gift box with customizable items including a leather notebook, metal pen, and wireless charger.',
+    name: 'Premium Corporate Gift Box',
+    description: 'Elegant gift box with customizable items including a leather diary, metallic pen, and coasters.',
     price: 2499,
-    imageUrl: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&auto=format&fit=crop&q=60',
+    imageUrl: 'https://5.imimg.com/data5/SELLER/Default/2022/3/OB/OI/YG/126648247/luxury-corporate-gift-box.jpg',
     category: 'corporate-gifting',
     minQuantity: 50,
     customizationOptions: ['Logo printing', 'Custom color selection', 'Personalized message']
   },
   {
     id: '2',
-    name: 'Premium Coffee Set',
-    description: 'Elegant coffee set with branded mug, premium coffee beans, and custom coasters.',
+    name: 'Copper Water Bottle Set',
+    description: 'Traditional copper water bottle with two matching glasses in an elegant gift box.',
     price: 1999,
-    imageUrl: 'https://images.unsplash.com/photo-1516600164266-f3b8166ae679?w=800&auto=format&fit=crop&q=60',
+    imageUrl: 'https://m.media-amazon.com/images/I/71oiJ8YM71L.jpg',
     category: 'corporate-gifting',
     minQuantity: 25,
-    customizationOptions: ['Logo on mug', 'Custom packaging', 'Choice of coffee beans']
+    customizationOptions: ['Logo engraving', 'Custom packaging', 'Gift message']
   },
   {
     id: '3',
-    name: 'Eco-Friendly Gift Pack',
-    description: 'Sustainable gift set including bamboo water bottle, recycled notebook, and organic snacks.',
+    name: 'Eco-Friendly Diwali Gift Hamper',
+    description: 'Sustainable gift hamper including jute bag, clay diyas, organic sweets, and herbal teas.',
     price: 1499,
-    imageUrl: 'https://images.unsplash.com/photo-1595925889916-2e5c7c9f1180?w=800&auto=format&fit=crop&q=60',
-    category: 'bulk-gifting',
+    imageUrl: 'https://cdn.igp.com/f_auto,q_auto,t_pnopt7prodlp/products/p-eco-friendly-diwali-sweets-hamper-202393-m.jpg',
+    category: 'corporate-gifting',
     minQuantity: 100,
-    customizationOptions: ['Engraved logo', 'Custom color options']
+    customizationOptions: ['Customized greeting card', 'Corporate branding']
   },
   {
     id: '4',
-    name: 'Tech Essentials Kit',
-    description: 'Modern tech accessories including wireless earbuds, power bank, and phone stand.',
-    price: 3499,
-    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=60',
+    name: 'Premium Ceramic Mug Set',
+    description: 'Set of 4 high-quality ceramic mugs with customizable designs for corporate branding.',
+    price: 1299,
+    imageUrl: 'https://m.media-amazon.com/images/I/51wuxYmq-mL.jpg',
     category: 'bulk-gifting',
     minQuantity: 50,
-    customizationOptions: ['Custom packaging', 'Logo on each item']
+    customizationOptions: ['Logo printing', 'Custom colors', 'Personalized packaging']
   },
   {
     id: '5',
-    name: 'Custom Printed T-Shirts',
-    description: 'High-quality cotton t-shirts with your company logo or design.',
-    price: 599,
-    imageUrl: 'https://images.unsplash.com/photo-1586768035423-0471c4994d72?w=800&auto=format&fit=crop&q=60',
-    category: 'custom-printing',
-    minQuantity: 50,
-    customizationOptions: ['Multiple colors', 'Various sizes', 'Custom design placement']
+    name: 'Executive Desk Organizer',
+    description: 'Handcrafted wooden desk organizer with compartments for stationery and accessories.',
+    price: 1899,
+    imageUrl: 'https://5.imimg.com/data5/ANDROID/Default/2021/1/YH/IG/CJ/83095211/product-jpeg-500x500.jpg',
+    category: 'bulk-gifting',
+    minQuantity: 20,
+    customizationOptions: ['Logo engraving', 'Custom wood finish', 'Corporate branding']
   },
   {
     id: '6',
-    name: 'Branded Stationery Set',
-    description: 'Professional stationery set including notebooks, pens, and desk accessories.',
-    price: 899,
-    imageUrl: 'https://images.unsplash.com/photo-1583845112239-97ef1341b271?w=800&auto=format&fit=crop&q=60',
-    category: 'custom-printing',
+    name: 'Stainless Steel Bottle with Tumbler',
+    description: 'High-quality insulated stainless steel water bottle with detachable tumbler for easy branding.',
+    price: 1199,
+    imageUrl: 'https://5.imimg.com/data5/ANDROID/Default/2022/11/CI/KA/SQ/46382006/product-jpeg-500x500.jpg',
+    category: 'bulk-gifting',
     minQuantity: 100,
-    customizationOptions: ['Logo printing', 'Custom colors', 'Personalized packaging']
+    customizationOptions: ['Logo printing', 'Multiple color options', 'Customized packaging']
   }
 ]; 

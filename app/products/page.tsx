@@ -10,14 +10,14 @@ const categories = [
     name: 'Corporate Gifting',
     slug: 'corporate-gifting',
     description: 'Premium gifting solutions for corporate events and client appreciation',
-    image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&auto=format&fit=crop&q=60',
+    image: 'https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-blue-500 to-blue-700'
   },
   {
     name: 'Bulk Gifting',
     slug: 'bulk-gifting',
     description: 'Cost-effective solutions for large-scale corporate gifts',
-    image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&auto=format&fit=crop&q=60',
+    image: 'https://images.pexels.com/photos/7318924/pexels-photo-7318924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-green-500 to-green-700'
   }
 ];
@@ -45,7 +45,7 @@ async function Products() {
           <div className="absolute inset-0">
             <img
               className="h-full w-full object-cover"
-              src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=1600&auto=format&fit=crop&q=80"
+              src="https://images.pexels.com/photos/6476118/pexels-photo-6476118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="Corporate Gifting"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/50" />
