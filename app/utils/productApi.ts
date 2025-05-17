@@ -1,3 +1,5 @@
+import { fetchProducts } from './googleSheets';
+
 export interface Product {
   id: string;
   name: string;
@@ -21,136 +23,37 @@ if (!API_TOKEN) {
   throw new Error('NEXT_PUBLIC_API_TOKEN environment variable is not set');
 }
 
-// Get the base URL for API calls
-const getBaseUrl = () => {
-  return ''; // We don't need a base URL for external API calls
-};
+// Cache for products
+let productsCache: Product[] | null = null;
+let lastFetchTime = 0;
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 export async function getAllProducts(): Promise<Product[]> {
-  try {
-    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      console.error(`API Error: ${response.status} - ${response.statusText}`);
-      return [];
-    }
-
-    const data = await response.json();
-    
-    if (!data.data?.products || !Array.isArray(data.data.products)) {
-      console.warn('No products found or invalid data format');
-      return [];
-    }
-
-    return data.data.products.map((product: any) => ({
-      id: String(product.id),
-      name: String(product.name),
-      description: String(product.description),
-      price: Number(product.price),
-      imageUrl: String(product.imageUrl),
-      category: String(product.category).toLowerCase(),
-      minQuantity: product.minQuantity ? Number(product.minQuantity) : undefined,
-      customizationOptions: Array.isArray(product.customizationOptions) 
-        ? product.customizationOptions 
-        : typeof product.customizationOptions === 'string'
-          ? product.customizationOptions.split(';').filter(Boolean)
-          : undefined
-    }));
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    return [];
+  // Check if cache is valid
+  const now = Date.now();
+  if (productsCache && now - lastFetchTime < CACHE_TTL) {
+    return productsCache;
   }
+  
+  // Fetch fresh data from Google Sheets
+  const products = await fetchProducts();
+  
+  // Update cache
+  productsCache = products;
+  lastFetchTime = now;
+  
+  return products;
 }
 
 export async function getProductsByCategory(category: string): Promise<Product[]> {
-  try {
-    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProducts&category=${encodeURIComponent(category)}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      console.error(`API Error: ${response.status} - ${response.statusText}`);
-      return [];
-    }
-
-    const data = await response.json();
-
-    if (!data.data?.products || !Array.isArray(data.data.products)) {
-      console.warn(`No products found for category: ${category}`);
-      return [];
-    }
-
-    return data.data.products.map((product: any) => ({
-      id: String(product.id),
-      name: String(product.name),
-      description: String(product.description),
-      price: Number(product.price),
-      imageUrl: String(product.imageUrl),
-      category: String(product.category).toLowerCase(),
-      minQuantity: product.minQuantity ? Number(product.minQuantity) : undefined,
-      customizationOptions: Array.isArray(product.customizationOptions) 
-        ? product.customizationOptions 
-        : typeof product.customizationOptions === 'string'
-          ? product.customizationOptions.split(';').filter(Boolean)
-          : undefined
-    }));
-  } catch (error) {
-    console.error(`Error fetching products for category ${category}:`, error);
-    return [];
-  }
+  const products = await getAllProducts();
+  return products.filter(product => product.category === category);
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
-  try {
-    const response = await fetch(`${API_URL}?token=${API_TOKEN}&action=getProduct&id=${encodeURIComponent(id)}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      console.error(`API Error: ${response.status} - ${response.statusText}`);
-      return null;
-    }
-
-    const data = await response.json();
-
-    if (!data.data?.product) {
-      console.warn(`No product found with ID: ${id}`);
-      return null;
-    }
-
-    const product = data.data.product;
-    return {
-      id: String(product.id),
-      name: String(product.name),
-      description: String(product.description),
-      price: Number(product.price),
-      imageUrl: String(product.imageUrl),
-      category: String(product.category).toLowerCase(),
-      minQuantity: product.minQuantity ? Number(product.minQuantity) : undefined,
-      customizationOptions: Array.isArray(product.customizationOptions) 
-        ? product.customizationOptions 
-        : typeof product.customizationOptions === 'string'
-          ? product.customizationOptions.split(';').filter(Boolean)
-          : undefined
-    };
-  } catch (error) {
-    console.error(`Error fetching product ${id}:`, error);
-    return null;
-  }
+  const products = await getAllProducts();
+  const product = products.find(p => p.id === id);
+  return product || null;
 }
 
 export async function addProduct(product: Omit<Product, 'id'>): Promise<string | null> {
@@ -181,6 +84,10 @@ export async function addProduct(product: Omit<Product, 'id'>): Promise<string |
     }
 
     const data = await response.json();
+    
+    // Invalidate cache
+    productsCache = null;
+    
     if (data.data?.id) {
       return String(data.data.id);
     }
@@ -223,6 +130,10 @@ export async function updateProduct(id: string, updates: Partial<Omit<Product, '
     }
 
     const data = await response.json();
+    
+    // Invalidate cache
+    productsCache = null;
+    
     return data.data?.success === true;
   } catch (error) {
     console.error(`Error updating product ${id}:`, error);
@@ -252,6 +163,10 @@ export async function deleteProduct(id: string): Promise<boolean> {
     }
 
     const data = await response.json();
+    
+    // Invalidate cache
+    productsCache = null;
+    
     return data.data?.success === true;
   } catch (error) {
     console.error(`Error deleting product ${id}:`, error);

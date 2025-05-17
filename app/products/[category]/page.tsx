@@ -2,20 +2,28 @@ import Navigation from '../../components/Navigation'
 import Link from 'next/link'
 import { getProductsByCategory } from '../../utils/productApi'
 
-// Make page dynamic to avoid caching
-export const revalidate = 0;
+// Cache this page for better performance
+export const revalidate = 300; // Revalidate every 5 minutes to match API cache TTL
+
+// Generate static paths for known categories
+export async function generateStaticParams() {
+  return [
+    { category: 'corporate-gifting' },
+    { category: 'bulk-gifting' }
+  ];
+}
 
 const categoryDetails = {
   'corporate-gifting': {
     title: 'Corporate Gifting',
     description: 'Premium gifting solutions for corporate events, employee recognition, and client appreciation.',
-    image: 'https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/6476118/pexels-photo-6476118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-blue-500 to-blue-700'
   },
   'bulk-gifting': {
     title: 'Bulk Gifting',
     description: 'Cost-effective solutions for large-scale corporate events and promotions.',
-    image: 'https://images.pexels.com/photos/7318924/pexels-photo-7318924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/6177639/pexels-photo-6177639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-green-500 to-green-700'
   }
 };
@@ -28,7 +36,11 @@ export interface CategoryPageProps {
 
 async function CategoryPage({ params }: CategoryPageProps) {
   const products = await getProductsByCategory(params.category);
-  const details = categoryDetails[params.category as keyof typeof categoryDetails];
+  const details = categoryDetails[params.category as keyof typeof categoryDetails] || {
+    title: params.category.replace('-', ' '),
+    description: 'Explore our collection of premium products.',
+    color: 'from-gray-500 to-gray-700'
+  };
 
   return (
     <div className="bg-white">
@@ -50,15 +62,10 @@ async function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-lg text-gray-500 mb-8">
             {details.description}
           </p>
-          
-          {/* Coming Soon Banner */}
-          <div className="mb-10 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-6">
-            <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
-          </div>
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative">
               <div className="aspect-h-4 aspect-w-3 w-full overflow-hidden rounded-lg bg-gray-100">
@@ -66,6 +73,7 @@ async function CategoryPage({ params }: CategoryPageProps) {
                   src={product.imageUrl}
                   alt={product.name}
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  style={{display: 'block'}}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
@@ -80,6 +88,16 @@ async function CategoryPage({ params }: CategoryPageProps) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Coming Soon Banner */}
+        <div className="mt-12 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-6">
+          <div className="flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="font-bold text-lg text-primary-700">More {details.title} options coming soon on May 25, 2025!</p>
+          </div>
         </div>
 
         {/* Contact section */}

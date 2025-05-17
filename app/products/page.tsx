@@ -2,22 +2,22 @@ import Navigation from '../components/Navigation'
 import Link from 'next/link'
 import { getAllProducts } from '../utils/productApi'
 
-// Make page dynamic to avoid caching
-export const revalidate = 0;
+// Reduce cache time to 5 minutes to match the API cache TTL
+export const revalidate = 300;
 
 const categories = [
   {
     name: 'Corporate Gifting',
     slug: 'corporate-gifting',
     description: 'Premium gifting solutions for corporate events and client appreciation',
-    image: 'https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/6476118/pexels-photo-6476118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-blue-500 to-blue-700'
   },
   {
     name: 'Bulk Gifting',
     slug: 'bulk-gifting',
     description: 'Cost-effective solutions for large-scale corporate gifts',
-    image: 'https://images.pexels.com/photos/7318924/pexels-photo-7318924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/6177639/pexels-photo-6177639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     color: 'from-green-500 to-green-700'
   }
 ];
@@ -45,22 +45,28 @@ async function Products() {
           <div className="absolute inset-0">
             <img
               className="h-full w-full object-cover"
-              src="https://images.pexels.com/photos/6476118/pexels-photo-6476118.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Corporate Gifting"
+              src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              alt="Indian Corporate Gifting"
+              style={{display: 'block'}}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/50" />
           </div>
-          <div className="relative mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <div className="relative mx-auto max-w-7xl py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-6xl">
               Corporate Gifting Solutions
             </h1>
-            <p className="mt-6 max-w-2xl text-xl text-gray-300">
-              Discover our premium collection of corporate gifts, bulk merchandise, and custom printing solutions.
+            <p className="mt-4 sm:mt-6 max-w-2xl text-lg sm:text-xl text-gray-300">
+              Discover our premium collection of corporate gifts and bulk merchandise at competitive prices.
             </p>
             
             {/* Coming Soon Banner */}
-            <div className="mt-10 bg-white/90 backdrop-blur rounded-lg shadow-xl p-6 max-w-2xl border-l-4 border-primary-600">
-              <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+            <div className="mt-8 sm:mt-10 bg-white/90 backdrop-blur rounded-lg shadow-xl p-4 sm:p-6 max-w-2xl border-l-4 border-primary-600">
+              <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="font-bold text-base sm:text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+              </div>
             </div>
           </div>
         </div>
@@ -80,6 +86,7 @@ async function Products() {
                       src={category.image}
                       alt={category.name}
                       className="h-full w-full object-cover object-center"
+                      style={{display: 'block'}}
                     />
                     <div className={`absolute inset-0 bg-gradient-to-b ${category.color} mix-blend-multiply`} />
                     <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
@@ -118,6 +125,7 @@ async function Products() {
                         src={product.imageUrl}
                         alt={product.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
+                        style={{display: 'block'}}
                       />
                       <div className="flex items-end p-2 sm:p-4">
                         <div className="w-full rounded-md bg-white/90 backdrop-blur p-2 sm:p-4 text-sm">
@@ -127,12 +135,22 @@ async function Products() {
                               {product.name}
                             </Link>
                           </h3>
-                          <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
+                          <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description.substring(0, 50)}...</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
+              </div>
+              
+              {/* Coming Soon Banner */}
+              <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-4 sm:p-6">
+                <div className="flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="font-bold text-base sm:text-lg text-primary-700">More {category.replace('-', ' ')} options coming soon on May 25, 2025!</p>
+                </div>
               </div>
             </div>
           ))}

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Logo from './Logo'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -28,7 +29,25 @@ export default function Navigation() {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link href="/">
+                  <Link href="/" className="flex items-center">
+                    <div className="w-8 h-8 mr-2">
+                      <svg viewBox="0 0 100 100" className="w-full h-full text-primary-600">
+                        {/* Stylized monkey head */}
+                        <path d="M50 15c-19.33 0-35 15.67-35 35 0 19.33 15.67 35 35 35s35-15.67 35-35c0-19.33-15.67-35-35-35zm0 60c-13.81 0-25-11.19-25-25s11.19-25 25-25 25 11.19 25 25-11.19 25-25 25z" />
+                        
+                        {/* Hair spike */}
+                        <path d="M50 5c-3 0-9 5-9 10h18c0-5-6-10-9-10z" />
+                        
+                        {/* Sunglasses */}
+                        <path d="M25 40c-2.76 0-5 2.24-5 5v5c0 2.76 2.24 5 5 5h15c2.76 0 5-2.24 5-5v-5c0-2.76-2.24-5-5-5H25zm35 0c-2.76 0-5 2.24-5 5v5c0 2.76 2.24 5 5 5h15c2.76 0 5-2.24 5-5v-5c0-2.76-2.24-5-5-5H60z" />
+                        
+                        {/* Connection between glasses */}
+                        <path d="M45 45h10v5H45z" />
+                        
+                        {/* Ears */}
+                        <path d="M20 35c-3 0-5 2-5 5s2 5 5 5c1 0 2-1 2-2v-6c0-1-1-2-2-2zm60 0c3 0 5 2 5 5s-2 5-5 5c-1 0-2-1-2-2v-6c0-1 1-2 2-2z" />
+                      </svg>
+                    </div>
                     <span className="text-xl font-bold text-primary-600">Corporate Monkey</span>
                   </Link>
                 </div>

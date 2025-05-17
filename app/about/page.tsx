@@ -2,6 +2,8 @@
 
 import Navigation from '../components/Navigation'
 import Link from 'next/link'
+import Image from 'next/image'
+import Logo from '../components/Logo'
 
 export default function About() {
   return (
@@ -13,8 +15,9 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             className="h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=1600&auto=format&fit=crop"
             alt="About Corporate Monkey"
+            style={{display: 'block'}}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/50" />
         </div>
@@ -23,7 +26,7 @@ export default function About() {
             About Corporate Monkey
           </h1>
           <p className="mt-6 max-w-2xl text-xl text-gray-300">
-            Your trusted partner in corporate gifting and branded merchandise solutions.
+            Your trusted Indian partner for premium corporate gifting solutions at the most competitive prices.
           </p>
         </div>
       </div>
@@ -35,18 +38,49 @@ export default function About() {
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Story</h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Corporate Monkey was founded with a simple yet powerful vision: to transform corporate gifting from a routine obligation into a meaningful expression of appreciation and connection. Our journey began with understanding the challenges businesses face in finding unique, high-quality gifts that truly represent their brand values.
+              Corporate Monkey was founded in New Delhi with a simple yet powerful vision: to revolutionize the corporate gifting industry in India by offering premium quality products at the most affordable prices. Our journey began with understanding the challenges Indian businesses face in finding unique, high-quality gifts that truly represent their brand values without exceeding their budget.
             </p>
             <p className="mt-4 text-lg leading-8 text-gray-600">
-              Today, we pride ourselves on curating exceptional gift collections and providing personalized solutions that help businesses strengthen their relationships with clients, employees, and partners.
+              By partnering directly with local Indian manufacturers and artisans, we've eliminated middlemen to deliver exceptional value. Today, we pride ourselves on curating the finest selection of traditional and modern Indian gift collections at prices that are unmatched in the industry.
             </p>
           </div>
-          <div className="mt-10 lg:mt-0">
+          <div className="mt-10 lg:mt-0 flex items-center justify-center">
             <img
-              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop&q=60"
-              alt="Our team"
-              className="rounded-2xl shadow-xl"
+              src="https://images.unsplash.com/photo-1589792923962-537704632910?q=80&w=1600&auto=format&fit=crop"
+              alt="Indian corporate team with gift boxes"
+              className="rounded-2xl shadow-xl max-h-96 object-cover"
+              style={{display: 'block'}}
             />
+          </div>
+        </div>
+
+        {/* Companies We've Worked With */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-12">
+            Companies We've Worked With
+          </h2>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8 items-center justify-items-center">
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-gray-700">GreenLam</div>
+            </div>
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-primary-600">Google</div>
+            </div>
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-blue-600">Incedo</div>
+            </div>
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-red-600">KFC</div>
+            </div>
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-orange-600">NDRF</div>
+            </div>
+            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-green-600">TCS</div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-gray-600 text-lg">And many more businesses across India trust us for their corporate gifting needs.</p>
           </div>
         </div>
 
@@ -56,8 +90,17 @@ export default function About() {
           <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Quality First",
-                description: "We never compromise on quality, ensuring every product meets our high standards.",
+                title: "Best Price Guarantee",
+                description: "We source directly from Indian manufacturers to offer the most competitive prices without compromising on quality.",
+                icon: (
+                  <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Premium Indian Quality",
+                description: "Every product in our collection is handpicked for quality and craftsmanship, showcasing the best of Indian manufacturing.",
                 icon: (
                   <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -65,20 +108,11 @@ export default function About() {
                 ),
               },
               {
-                title: "Customer Focus",
-                description: "Every solution is tailored to meet our clients unique needs and preferences.",
+                title: "Pan-India Service",
+                description: "We deliver exceptional corporate gifting solutions to businesses across India, from metro cities to emerging markets.",
                 icon: (
                   <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Innovation",
-                description: "We continuously explore new ideas and trends to offer unique gifting solutions.",
-                icon: (
-                  <svg className="h-8 w-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 ),
               },

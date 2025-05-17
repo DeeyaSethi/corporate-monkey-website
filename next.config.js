@@ -9,15 +9,34 @@ const nextConfig = {
     NEXT_PUBLIC_API_TOKEN: process.env.NEXT_PUBLIC_API_TOKEN,
   },
 
-  // Optimize images from trusted domains
+  // Disable image optimization completely to ensure images work
   images: {
-    domains: [
-      'images.unsplash.com',
-      'cms.cloudinary.vpsvc.com',
-      'thot-media.thehouseofthings.com',
-      '5.imimg.com'
-    ],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      }
+    ]
   },
+  
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  
+  // Optimize performance by removing console logs in production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Disable all experimental features
+  experimental: {},
+  
+  // Configure swcMinify for better performance
+  swcMinify: true,
 }
 
 module.exports = nextConfig 

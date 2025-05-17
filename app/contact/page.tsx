@@ -11,8 +11,9 @@ export default function Contact() {
         <div className="absolute inset-0">
           <img
             className="h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&auto=format&fit=crop&q=80"
-            alt="Contact Us"
+            src="https://images.pexels.com/photos/6177620/pexels-photo-6177620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Contact Us - Corporate Monkey India"
+            style={{display: 'block'}}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/50" />
         </div>

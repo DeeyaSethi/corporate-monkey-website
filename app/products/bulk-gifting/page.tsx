@@ -47,7 +47,6 @@ async function BulkGiftingPage() {
                     </p>
                   )}
                 </div>
-                <p className="text-lg font-medium text-gray-900">₹{product.price}</p>
               </div>
               {product.customizationOptions && product.customizationOptions.length > 0 && (
                 <div className="mt-4">

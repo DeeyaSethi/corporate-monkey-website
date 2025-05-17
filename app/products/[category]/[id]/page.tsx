@@ -83,9 +83,20 @@ async function ProductPage({ params }: ProductPageProps) {
               <p className="text-sm sm:text-base text-gray-700">{product.description}</p>
             </div>
 
+            {product.minQuantity && (
+              <div className="mt-4 py-2 px-4 bg-gray-50 rounded-md inline-block">
+                <p className="text-sm text-gray-600">Minimum order: <span className="font-medium">{product.minQuantity} units</span></p>
+              </div>
+            )}
+
             {/* Coming Soon Banner */}
             <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-4 sm:p-6">
-              <p className="font-bold text-base sm:text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="font-bold text-base sm:text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+              </div>
             </div>
 
             <Link
