@@ -59,49 +59,22 @@ async function Products() {
               Discover our premium collection of corporate gifts and bulk merchandise at competitive prices.
             </p>
             
-            {/* Coming Soon Banner */}
-            <div className="mt-8 sm:mt-10 bg-white/90 backdrop-blur rounded-lg shadow-xl p-4 sm:p-6 max-w-2xl border-l-4 border-primary-600">
+            {/* Coming Soon Banner - Premium Design */}
+            <div className="mt-8 sm:mt-10 bg-primary-600 rounded-lg shadow-xl p-5 sm:p-6 max-w-2xl">
               <div className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p className="font-bold text-base sm:text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+                <div className="mr-4 bg-white rounded-full p-2 shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="font-bold text-lg sm:text-xl text-white tracking-tight">More product options coming soon on May 25, 2025!</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Category section */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:max-w-none">
-            <div className="mt-6 space-y-6 lg:grid lg:grid-cols-2 lg:gap-x-6 lg:space-y-0">
-              {categories.map((category) => (
-                <Link
-                  key={category.slug}
-                  href={`/products/${category.slug}`}
-                  className="group relative block overflow-hidden rounded-lg bg-white shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl"
-                >
-                  <div className="relative h-48 sm:h-64 lg:h-80">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="h-full w-full object-cover object-center"
-                      style={{display: 'block'}}
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-b ${category.color} mix-blend-multiply`} />
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white">{category.name}</h3>
-                      <p className="mt-2 text-sm text-gray-100">{category.description}</p>
-                      <span className="mt-4 inline-flex items-center text-sm font-medium text-white">
-                        Explore Collection →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
+        {/* Product sections */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           {/* Featured Products */}
           {Object.entries(productsByCategory).map(([category, categoryProducts]) => (
             <div key={category} className="mt-12 sm:mt-16">
@@ -141,16 +114,6 @@ async function Products() {
                     </div>
                   </div>
                 ))}
-              </div>
-              
-              {/* Coming Soon Banner */}
-              <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-4 sm:p-6">
-                <div className="flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <p className="font-bold text-base sm:text-lg text-primary-700">More {category.replace('-', ' ')} options coming soon on May 25, 2025!</p>
-                </div>
               </div>
             </div>
           ))}
