@@ -131,12 +131,6 @@ async function Products() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4">
-                      <h3 className="text-sm sm:text-base font-medium text-gray-900">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1 text-xs sm:text-sm text-gray-500">{product.description}</p>
-                    </div>
                   </div>
                 ))}
               </div>

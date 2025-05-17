@@ -67,10 +67,11 @@ async function CategoryPage({ params }: CategoryPageProps) {
                   alt={product.name}
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />
+                <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <div className="mt-4">
+              <div className="mt-4 p-2">
                 <h3 className="text-sm sm:text-base font-medium text-gray-900">
-                  <Link href={`/products/${params.category}/${product.id}`}>
+                  <Link href={`/products/${params.category}/${product.id}`} className="hover:text-primary-600">
                     <span aria-hidden="true" className="absolute inset-0" />
                     {product.name}
                   </Link>

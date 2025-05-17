@@ -45,6 +45,17 @@ async function ProductPage({ params }: ProductPageProps) {
       <Navigation />
       
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
+        {/* Back link for mobile - more prominent */}
+        <Link
+          href={`/products/${params.category}`}
+          className="text-primary-600 hover:text-primary-500 mb-6 inline-flex items-center text-sm font-medium lg:hidden"
+        >
+          <svg className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to {params.category.replace('-', ' ')}
+        </Link>
+
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
           <div className="aspect-h-4 aspect-w-3 sm:aspect-h-3 sm:aspect-w-4 overflow-hidden rounded-lg">
@@ -57,9 +68,10 @@ async function ProductPage({ params }: ProductPageProps) {
 
           {/* Product info */}
           <div className="mt-8 lg:mt-0">
+            {/* Back link for desktop */}
             <Link
               href={`/products/${params.category}`}
-              className="text-primary-600 hover:text-primary-500 mb-4 inline-block"
+              className="text-primary-600 hover:text-primary-500 mb-4 hidden lg:inline-block"
             >
               ← Back to {params.category.replace('-', ' ')}
             </Link>
@@ -72,13 +84,13 @@ async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             {/* Coming Soon Banner */}
-            <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-6">
-              <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+            <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-4 sm:p-6">
+              <p className="font-bold text-base sm:text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
             </div>
 
             <Link
               href="/contact"
-              className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+              className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-50"
             >
               Contact Us For Details
             </Link>
