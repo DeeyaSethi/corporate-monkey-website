@@ -17,12 +17,6 @@ const categoryDetails = {
     description: 'Cost-effective solutions for large-scale corporate events and promotions.',
     image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&auto=format&fit=crop&q=60',
     color: 'from-green-500 to-green-700'
-  },
-  'custom-printing': {
-    title: 'Custom Printing',
-    description: 'Personalized printing services for corporate merchandise and promotional materials.',
-    image: 'https://images.unsplash.com/photo-1606293459366-910b58b2d276?w=800&auto=format&fit=crop&q=60',
-    color: 'from-purple-500 to-purple-700'
   }
 };
 
@@ -40,11 +34,6 @@ async function CategoryPage({ params }: CategoryPageProps) {
     <div className="bg-white">
       <Navigation />
       
-      {/* Coming Soon Banner */}
-      <div className="bg-primary-600 text-white text-center py-3 px-4">
-        <p className="text-sm sm:text-base font-medium">More product options coming soon on May 25, 2025!</p>
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
         <div className="flex flex-col">
           <Link
@@ -61,6 +50,11 @@ async function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-lg text-gray-500 mb-8">
             {details.description}
           </p>
+          
+          {/* Coming Soon Banner */}
+          <div className="mb-10 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-6">
+            <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+          </div>
         </div>
 
         {/* Product grid */}

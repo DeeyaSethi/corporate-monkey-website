@@ -19,13 +19,6 @@ const categories = [
     description: 'Cost-effective solutions for large-scale corporate gifts',
     image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=800&auto=format&fit=crop&q=60',
     color: 'from-green-500 to-green-700'
-  },
-  {
-    name: 'Custom Printing',
-    slug: 'custom-printing',
-    description: 'Personalized merchandise with your company branding',
-    image: 'https://images.unsplash.com/photo-1606293459366-910b58b2d276?w=800&auto=format&fit=crop&q=60',
-    color: 'from-purple-500 to-purple-700'
   }
 ];
 
@@ -46,11 +39,6 @@ async function Products() {
     <div className="bg-white">
       <Navigation />
       
-      {/* Coming Soon Banner */}
-      <div className="bg-primary-600 text-white text-center py-3 px-4">
-        <p className="text-sm sm:text-base font-medium">More product options coming soon on May 25, 2025!</p>
-      </div>
-      
       <div className="relative">
         {/* Hero section */}
         <div className="relative">
@@ -69,13 +57,18 @@ async function Products() {
             <p className="mt-6 max-w-2xl text-xl text-gray-300">
               Discover our premium collection of corporate gifts, bulk merchandise, and custom printing solutions.
             </p>
+            
+            {/* Coming Soon Banner */}
+            <div className="mt-10 bg-white/90 backdrop-blur rounded-lg shadow-xl p-6 max-w-2xl border-l-4 border-primary-600">
+              <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
+            </div>
           </div>
         </div>
 
         {/* Category section */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:max-w-none">
-            <div className="mt-6 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+            <div className="mt-6 space-y-6 lg:grid lg:grid-cols-2 lg:gap-x-6 lg:space-y-0">
               {categories.map((category) => (
                 <Link
                   key={category.slug}

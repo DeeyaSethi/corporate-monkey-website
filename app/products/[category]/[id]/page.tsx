@@ -44,11 +44,6 @@ async function ProductPage({ params }: ProductPageProps) {
     <div className="bg-white">
       <Navigation />
       
-      {/* Coming Soon Banner */}
-      <div className="bg-primary-600 text-white text-center py-3 px-4">
-        <p className="text-sm sm:text-base font-medium">More product options coming soon on May 25, 2025!</p>
-      </div>
-
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           {/* Image gallery */}
@@ -74,6 +69,11 @@ async function ProductPage({ params }: ProductPageProps) {
             <div className="mt-4">
               <h2 className="sr-only">Product description</h2>
               <p className="text-sm sm:text-base text-gray-700">{product.description}</p>
+            </div>
+
+            {/* Coming Soon Banner */}
+            <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 rounded-lg shadow-md p-6">
+              <p className="font-bold text-lg text-primary-700">More product options coming soon on May 25, 2025!</p>
             </div>
 
             <Link
