@@ -59,26 +59,53 @@ export default function About() {
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-12">
             Companies We've Worked With
           </h2>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8 items-center justify-items-center">
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-gray-700">GreenLam</div>
-            </div>
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-primary-600">Google</div>
-            </div>
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-blue-600">Incedo</div>
-            </div>
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-red-600">KFC</div>
-            </div>
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-orange-600">NDRF</div>
-            </div>
-            <div className="flex items-center justify-center p-4 h-20 w-full grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-green-600">TCS</div>
+          
+          {/* Animated Company Logos Band */}
+          <div className="w-full overflow-hidden bg-white py-8">
+            <div className="relative flex animate-scroll">
+              <div className="flex space-x-16">
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-700">GreenLam</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-primary-600">Google</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-blue-600">Incedo</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-red-600">KFC</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-orange-600">NDRF</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-green-600">TCS</span>
+                </div>
+              </div>
+              <div className="flex space-x-16">
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-700">GreenLam</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-primary-600">Google</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-blue-600">Incedo</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-red-600">KFC</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-orange-600">NDRF</span>
+                </div>
+                <div className="flex-shrink-0">
+                  <span className="text-2xl sm:text-3xl font-bold text-green-600">TCS</span>
+                </div>
+              </div>
             </div>
           </div>
+          
           <div className="mt-8 text-center">
             <p className="text-gray-600 text-lg">And many more businesses across India trust us for their corporate gifting needs.</p>
           </div>
