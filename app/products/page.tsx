@@ -67,7 +67,7 @@ async function Products() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span className="font-bold text-lg sm:text-xl text-white tracking-tight">More product options coming soon on May 25, 2025!</span>
+                <span className="font-bold text-lg sm:text-xl text-white tracking-tight">🪔 Diwali Special Offers Live Now!</span>
               </div>
             </div>
           </div>

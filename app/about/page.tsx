@@ -15,7 +15,7 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             className="h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=1600&auto=format&fit=crop"
+            src="/main_image.jpg"
             alt="About Corporate Monkey"
             style={{display: 'block'}}
           />
@@ -34,24 +34,14 @@ export default function About() {
       {/* Content sections */}
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         {/* Our Story */}
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Story</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Corporate Monkey was founded in New Delhi with a simple yet powerful vision: to revolutionize the corporate gifting industry in India by offering premium quality products at the most affordable prices. Our journey began with understanding the challenges Indian businesses face in finding unique, high-quality gifts that truly represent their brand values without exceeding their budget.
-            </p>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
-              By partnering directly with local Indian manufacturers and artisans, we've eliminated middlemen to deliver exceptional value. Today, we pride ourselves on curating the finest selection of traditional and modern Indian gift collections at prices that are unmatched in the industry.
-            </p>
-          </div>
-          <div className="mt-10 lg:mt-0 flex items-center justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1589792923962-537704632910?q=80&w=1600&auto=format&fit=crop"
-              alt="Indian corporate team with gift boxes"
-              className="rounded-2xl shadow-xl max-h-96 object-cover"
-              style={{display: 'block'}}
-            />
-          </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Story</h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Corporate Monkey was founded in New Delhi with a simple yet powerful vision: to revolutionize the corporate gifting industry in India by offering premium quality products at the most affordable prices. Our journey began with understanding the challenges Indian businesses face in finding unique, high-quality gifts that truly represent their brand values without exceeding their budget.
+          </p>
+          <p className="mt-4 text-lg leading-8 text-gray-600">
+            By partnering directly with local Indian manufacturers and artisans, we've eliminated middlemen to deliver exceptional value. Today, we pride ourselves on curating the finest selection of traditional and modern Indian gift collections at prices that are unmatched in the industry.
+          </p>
         </div>
 
         {/* Companies We've Worked With */}
